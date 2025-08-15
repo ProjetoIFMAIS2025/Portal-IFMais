@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
+import InputDados from "../components/inputDados";
+
 import logo from '../assets/logo.svg';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -25,15 +27,18 @@ function LoginPage(){
             <h1 className='loginCadastro-titulo mb-3'>Login</h1>
 
             <Form>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label>Email address</Form.Label>
-                    <Form.Control type="email" placeholder="Enter email" />
-                </Form.Group>
+                <InputDados
+                    idForm="emailLogin"
+                    labelForm="Endereço de Email"
+                    placeholderInput="nome@exemplo.com"
+                />
 
-                <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" placeholder="Password" />
-                </Form.Group>
+                <InputDados
+                    idForm="senhaLogin"
+                    labelForm="Senha"
+                    typeInput="password"
+                    placeholderInput="**********"
+                />
 
                 <Button variant="primary" type="submit" className="d-block mb-3 ms-auto me-auto px-5">
                     Entrar
