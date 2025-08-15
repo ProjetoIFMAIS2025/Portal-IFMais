@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 
-import Etapa1 from '../features/cadastro/etapa1';
+import CEtapa1 from '../features/cadastro/etapa1';
+import CEtapa2 from '../features/cadastro/etapa2'
 
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -27,11 +28,12 @@ function CadastroPage(){
             [etapa]: dados
         }));
 
-        console.log(dados);
+        console.log(etapaDados);
     }
     
     //muda Etapa Atual
     const [etapaAtual, setEtapaAtual] = useState(1);
+    
 
     return (
         <main className='
@@ -48,13 +50,33 @@ function CadastroPage(){
 
             <h1 className='loginCadastro-titulo mb-3'>Cadastro</h1>
 
-            <Etapa1 enviaDados={(dados) => atualizarDadosEtapa("etapa1", dados)}/>
+            <Form>
+                {etapaAtual == 1 &&
+                    <CEtapa1 enviaDados={(dados) => atualizarDadosEtapa("etapa1", dados)}/>
+                }
+                {etapaAtual == 2 &&
+                    <CEtapa2 enviaDados={(dados) => atualizarDadosEtapa("etapa2", dados)}/>
+                }
+            </Form>
 
-            <Button variant="primary" type="submit" className="d-block mb-3 ms-auto me-auto px-5">
-                Próximo
-            </Button>
+            <div className="loginCadastro-botoes">
+                {etapaAtual > 1 && 
+                <Button variant="primary" type="button" onClick={() => setEtapaAtual(etapaAtual - 1)} className="d-block mb-3 ms-auto me-auto w-50">
+                    Voltar
+                </Button> }
 
-            <Link to="/" className="underline">Já possuo uma conta!</Link>
+                {etapaAtual < 3 && 
+                <Button variant="primary" type="button" onClick={() => setEtapaAtual(etapaAtual + 1)} className="d-block mb-3 ms-auto me-auto w-50">
+                    Próximo
+                </Button> }
+
+                {etapaAtual === 3 && 
+                <Button variant="primary" type="submit" className="d-block mb-3 ms-auto me-auto w-50">
+                    Finalizar
+                </Button> }
+            </div>
+
+            <Link to="/" className="underline mb-3">Já possuo uma conta!</Link>
 
         </main>
     )

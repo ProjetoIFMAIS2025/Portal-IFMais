@@ -1,8 +1,12 @@
 .loginCadastro {
 
-    height: 100vh;
+    min-height: 100vh;
 
     .loginCadastro-titulo {
         font-size: 2rem;
+    }
+
+    .loginCadastro-botoes {
+        width: 100%;
     }
 }

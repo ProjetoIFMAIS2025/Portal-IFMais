@@ -23,7 +23,7 @@ function CEtapa1({ enviaDados }){
     }, [dados])
 
     return(
-            <Form>
+            <section>
                 <InputDados
                     idForm="nomeUsuario"
                     labelForm="Nome Completo"
@@ -49,9 +49,9 @@ function CEtapa1({ enviaDados }){
 
                 <Form.Group className="mb-3" controlId="cpfUsuario">
                     <Form.Label>CPF</Form.Label>
-                    <Form.Control ref={inputCPF} type="text" onChange={(e) => setDados({...dados, cpf: e.target.value})} required/>
+                    <Form.Control ref={inputCPF} type="text" placeholder='123.456.789-10' onChange={(e) => setDados({...dados, cpf: e.target.value})} required/>
                 </Form.Group>
-            </Form>
+            </section>
     )
 }
 
