@@ -24,6 +24,10 @@ Antes de clonar os arquivos para seu espaço de trabalho é necessário saber de
 * É utilizado o ambiente de desenvolvimento [Laragon](https://laragon.org), mas também pode ser utilizado [Xampp](https://www.apachefriends.org/pt_br/index.html) com Apache e o PHPMyAdmin.
 * É utilizado o mecanismo autoloader que é gerenciado pelo [Composer](https://getcomposer.org), sendo necessário sua instalação.
 
+# Visão Geral do Projeto ⚙️
+* [React](https://react.dev) para o Front-End
+* [Laravel](https://laravel.com) para o Back-End
+
 # Bibliotecas utilizadas📚
 * [Axios](https://www.npmjs.com/package/axios)
 * [React Router](https://reactrouter.com)
