@@ -1,48 +1,47 @@
 import { useMask } from '@react-input/mask';
-import { useState, useEffect } from "react";
-import Form from 'react-bootstrap/Form';
 
 import InputDados from '../../components/inputDados';
 
-function CEtapa2({ enviaDados, dados }){
+function CEtapa1({ enviaDados, dados }){
+
+    const inputCPF = useMask({
+        mask: '___.___.___-__',
+        replacement: { _: /\d/ },
+      });
+
 
     return(
             <section>
+
+                <h2 className='text-center fs-3 mb-3'>Dados Pessoais</h2>
+
                 <InputDados
-                    idForm="telUsuario"
-                    labelForm="Telefone"
-                    placeholderInput="(99) 99999-9999"
-                    funcDados={e => enviaDados({telefone: e.target.value})}
-                    value={dados.telefone}
+                    idForm="nomeUsuario"
+                    labelForm="Nome Completo"
+                    placeholderInput="Lucas da Silva"
+                    funcDados={e => enviaDados({nome: e.target.value})}
+                    value={dados.nome}
                 />
 
                 <InputDados
-                    idForm="emailUsuario"
-                    labelForm="Endereço de Email"
-                    placeholderInput="nome@exemplo.com"
-                    funcDados={e => enviaDados({email: e.target.value})}
-                    value={dados.email}
+                    idForm="nomeSocialUsuario"
+                    labelForm="Nome Social (Opcional)"
+                    placeholderInput=""
+                    funcDados={e => enviaDados({nomeSocial: e.target.value})}
+                    isRequired={false}
+                    value={dados.nomeSocial}
                 />
 
                 <InputDados
-                    idForm="senhaUsuario"
-                    labelForm="Senha"
-                    typeInput='password'
-                    placeholderInput="*******"
-                    funcDados={e => enviaDados({senha: e.target.value})}
-                    value={dados.senha}
-                />
-
-                <InputDados
-                    idForm="confSenhaUsuario"
-                    labelForm="Confirmar Senha"
-                    typeInput='password'
-                    placeholderInput="*******"
-                    funcDados={e => enviaDados({confirmarSenha: e.target.value})}
-                    value={dados.confirmarSenha}
+                    idForm="dataNascUsuario"
+                    labelForm="Data de Nascimento"
+                    typeInput='date'
+                    placeholderInput=""
+                    funcDados={e => enviaDados({dataNasc: e.target.value})}
+                    value={dados.dataNasc}
                 />
             </section>
     )
 }
 
-export default CEtapa2;
+export default CEtapa1;

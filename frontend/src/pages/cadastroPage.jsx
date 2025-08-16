@@ -1,9 +1,13 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 
-import CEtapa1 from '../features/cadastro/etapa1';
+import CEtapa1 from "../features/cadastro/etapa1";
 import CEtapa2 from '../features/cadastro/etapa2'
 import CEtapa3 from "../features/cadastro/etapa3";
+import CEtapa4 from "../features/cadastro/etapa4";
+
+import CEtapaEstudante from "../features/cadastro/etapa1_estudante";
+import CEtapaEmpresa from "../features/cadastro/etapa1_empresa";
 
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -30,16 +34,53 @@ function CadastroPage(){
         cidade: "",
         bairro: "",
         rua: "",
-        numeroCasa: ""
+        numeroCasa: "",
+        tipo: "",
+        matricula: "",
+        cnpj: "",
+        empresaRazao: "",
+        empresaNome: ""
     })
-    
+
+    const [dadosEstudante, setDadosEstudante] = useState({
+        cpf: "",
+        matricula: ""
+    })
+
+    const [dadosEmpresa, setDadosEmpresa] = useState({
+        cnpj: "",
+        empresaRazao: "",
+        empresaNome: "",
+        empresaArea: "",
+        empresaSobre: ""
+    })
+
+    //Função genérica para alterar valores temporários do usuário
+    const atualizarDados = (setState, novosDados) => {
+        setState(d => ({...d, ...novosDados}));
+
+        console.log(dadosEmpresa)
+    }
+
     //Função para alterar valores temporários do usuário
     const atualizarDadosEtapa = (novosDados) => {
         setEtapaDados(d => ({...d, ...novosDados}));
 
         console.log(etapaDados);
     }
-    
+
+    const atualizarDadosEstudantes = (novosDados) => {
+        setDadosEstudante(d => ({...d, ...novosDados}));
+
+        console.log(dadosEstudante);
+    }
+
+    const atualizarDadosEmpresa = (novosDados) => {
+        setDadosEstudante(d => ({...d, ...novosDados}));
+
+        console.log(dadosEstudante);
+    }
+
     //muda Etapa Atual
     const [etapaAtual, setEtapaAtual] = useState(1);
     
@@ -61,8 +102,12 @@ function CadastroPage(){
 
             <Form>
                 {etapaAtual == 1 &&
-                    <CEtapa1 enviaDados={atualizarDadosEtapa} dados={etapaDados}/>
+                    <CEtapa1 enviaDados={(novosDados) => atualizarDados(setEtapaDados, novosDados)} dados={etapaDados}/>
                 }
+
+                {etapaDados.tipo == "estudante" && etapaAtual == 1 && <CEtapaEstudante enviaDados={(novosDados) => atualizarDados(setDadosEstudante, novosDados)} dados={dadosEstudante}/>}
+
+                {etapaDados.tipo == "empresa" && etapaAtual == 1 && <CEtapaEmpresa enviaDados={(novosDados) => atualizarDados(setDadosEmpresa, novosDados)} dados={dadosEmpresa}/>}
 
                 {etapaAtual == 2 &&
                     <CEtapa2 enviaDados={atualizarDadosEtapa} dados={etapaDados}/>
@@ -70,6 +115,10 @@ function CadastroPage(){
 
                 {etapaAtual == 3 &&
                     <CEtapa3 enviaDados={atualizarDadosEtapa} dados={etapaDados}/>
+                }
+
+                {etapaAtual == 4 &&
+                    <CEtapa4 enviaDados={atualizarDadosEtapa} dados={etapaDados}/>
                 }
 
             </Form>
@@ -80,12 +129,12 @@ function CadastroPage(){
                     Voltar
                 </Button> }
 
-                {etapaAtual < 3 && 
+                {etapaAtual < 4 && 
                 <Button variant="primary" type="button" onClick={() => setEtapaAtual(etapaAtual + 1)} className="d-block mb-3 ms-auto me-auto w-50">
                     Próximo
                 </Button> }
 
-                {etapaAtual === 3 && 
+                {etapaAtual === 4 && 
                 <Button variant="primary" type="submit" className="d-block mb-3 ms-auto me-auto w-50">
                     Finalizar
                 </Button> }

@@ -1,51 +1,35 @@
-import { useMask } from '@react-input/mask';
-import { useState, useEffect } from "react";
 import Form from 'react-bootstrap/Form';
+
+import CEtapaEstudante from './etapa1_estudante';
 
 import InputDados from '../../components/inputDados';
 
-function CEtapa1({ enviaDados, dados }){
+function CEtapa4({ enviaDados, dados }){
 
-    const inputCPF = useMask({
-        mask: '___.___.___-__',
-        replacement: { _: /\d/ },
-      });
+   return (
+        <section>
+            <h2 className='text-center fs-3 mb-3'>Sobre a Conta</h2>
 
+            <Form.Group>
+                <Form.Label>Desejo me cadastrar como...</Form.Label>
+                <Form.Select aria-label='Desejo me cadastra como: ' className='mb-3' 
+                onChange={e => {
+                    const value = e.target.value;
 
-    return(
-            <section>
-                <InputDados
-                    idForm="nomeUsuario"
-                    labelForm="Nome Completo"
-                    placeholderInput="Lucas da Silva"
-                    funcDados={e => enviaDados({nome: e.target.value})}
-                    value={dados.nome}
-                />
+                    if (value == "empresa") enviaDados({tipo: "empresa", matricula: ""})
+                    else if (value == "estudante") enviaDados({tipo: "estudante"})
+                }} 
+                value={dados.tipo}>
+                    <option>Selecione...</option>
+                    <option value="estudante">Estudante</option>
+                    <option value="empresa">Empresa</option>
+                </Form.Select>
+            </Form.Group>
 
-                <InputDados
-                    idForm="nomeSocialUsuario"
-                    labelForm="Nome Social (Opcional)"
-                    placeholderInput=""
-                    funcDados={e => enviaDados({nomeSocial: e.target.value})}
-                    isRequired={false}
-                    value={dados.nomeSocial}
-                />
+         
+        </section>
+   )
 
-                <InputDados
-                    idForm="dataNascUsuario"
-                    labelForm="Data de Nascimento"
-                    typeInput='date'
-                    placeholderInput=""
-                    funcDados={e => enviaDados({dataNasc: e.target.value})}
-                    value={dados.dataNasc}
-                />
-
-                <Form.Group className="mb-3" controlId="cpfUsuario">
-                    <Form.Label>CPF</Form.Label>
-                    <Form.Control ref={inputCPF} type="text" placeholder='123.456.789-10' onChange={e => enviaDados({cpf: e.target.value})} value={dados.cpf} required/>
-                </Form.Group>
-            </section>
-    )
 }
 
-export default CEtapa1;
+export default CEtapa4;
