@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 
 import CEtapa1 from '../features/cadastro/etapa1';
 import CEtapa2 from '../features/cadastro/etapa2'
+import CEtapa3 from "../features/cadastro/etapa3";
 
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -54,9 +55,15 @@ function CadastroPage(){
                 {etapaAtual == 1 &&
                     <CEtapa1 enviaDados={(dados) => atualizarDadosEtapa("etapa1", dados)}/>
                 }
+
                 {etapaAtual == 2 &&
                     <CEtapa2 enviaDados={(dados) => atualizarDadosEtapa("etapa2", dados)}/>
                 }
+
+                {etapaAtual == 3 &&
+                    <CEtapa3 enviaDados={(dados) => atualizarDadosEtapa("etapa3", dados)}/>
+                }
+
             </Form>
 
             <div className="loginCadastro-botoes">
