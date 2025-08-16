@@ -4,18 +4,7 @@ import Form from 'react-bootstrap/Form';
 
 import InputDados from '../../components/inputDados';
 
-function CEtapa2({ enviaDados }){
-
-    const [dados, setDados] = useState({
-        telefone: "",
-        email: "",
-        senha: "",
-        confirmarSenha: ""
-    })
-
-    useEffect(() => {
-        enviaDados(dados);
-    }, [dados])
+function CEtapa2({ enviaDados, dados }){
 
     return(
             <section>
@@ -23,14 +12,16 @@ function CEtapa2({ enviaDados }){
                     idForm="telUsuario"
                     labelForm="Telefone"
                     placeholderInput="(99) 99999-9999"
-                    funcDados={(e) => setDados({...dados, telefone: e.target.value})}
+                    funcDados={e => enviaDados({telefone: e.target.value})}
+                    value={dados.telefone}
                 />
 
                 <InputDados
                     idForm="emailUsuario"
                     labelForm="Endereço de Email"
                     placeholderInput="nome@exemplo.com"
-                    funcDados={(e) => setDados({...dados, email: e.target.value})}
+                    funcDados={e => enviaDados({email: e.target.value})}
+                    value={dados.email}
                 />
 
                 <InputDados
@@ -38,7 +29,8 @@ function CEtapa2({ enviaDados }){
                     labelForm="Senha"
                     typeInput='password'
                     placeholderInput="*******"
-                    funcDados={(e) => setDados({...dados, senha: e.target.value})}
+                    funcDados={e => enviaDados({senha: e.target.value})}
+                    value={dados.senha}
                 />
 
                 <InputDados
@@ -46,7 +38,8 @@ function CEtapa2({ enviaDados }){
                     labelForm="Confirmar Senha"
                     typeInput='password'
                     placeholderInput="*******"
-                    funcDados={(e) => setDados({...dados, confirmarSenha: e.target.value})}
+                    funcDados={e => enviaDados({confirmarSenha: e.target.value})}
+                    value={dados.confirmarSenha}
                 />
             </section>
     )

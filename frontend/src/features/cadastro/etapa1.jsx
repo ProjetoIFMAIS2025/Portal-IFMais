@@ -4,23 +4,13 @@ import Form from 'react-bootstrap/Form';
 
 import InputDados from '../../components/inputDados';
 
-function CEtapa1({ enviaDados }){
-
-    const [dados, setDados] = useState({
-        nome: "",
-        nomeSocial: "",
-        dataNasc: "",
-        cpf: ""
-    })
+function CEtapa1({ enviaDados, dados }){
 
     const inputCPF = useMask({
         mask: '___.___.___-__',
         replacement: { _: /\d/ },
       });
 
-    useEffect(() => {
-        enviaDados(dados);
-    }, [dados])
 
     return(
             <section>
@@ -28,15 +18,17 @@ function CEtapa1({ enviaDados }){
                     idForm="nomeUsuario"
                     labelForm="Nome Completo"
                     placeholderInput="Lucas da Silva"
-                    funcDados={(e) => setDados({...dados, nome: e.target.value})}
+                    funcDados={e => enviaDados({nome: e.target.value})}
+                    value={dados.nome}
                 />
 
                 <InputDados
                     idForm="nomeSocialUsuario"
                     labelForm="Nome Social (Opcional)"
                     placeholderInput=""
-                    funcDados={(e) => setDados({...dados, nomeSocial: e.target.value})}
+                    funcDados={e => enviaDados({nomeSocial: e.target.value})}
                     isRequired={false}
+                    value={dados.nomeSocial}
                 />
 
                 <InputDados
@@ -44,12 +36,13 @@ function CEtapa1({ enviaDados }){
                     labelForm="Data de Nascimento"
                     typeInput='date'
                     placeholderInput=""
-                    funcDados={(e) => setDados({...dados, dataNasc: e.target.value})}
+                    funcDados={e => enviaDados({dataNasc: e.target.value})}
+                    value={dados.dataNasc}
                 />
 
                 <Form.Group className="mb-3" controlId="cpfUsuario">
                     <Form.Label>CPF</Form.Label>
-                    <Form.Control ref={inputCPF} type="text" placeholder='123.456.789-10' onChange={(e) => setDados({...dados, cpf: e.target.value})} required/>
+                    <Form.Control ref={inputCPF} type="text" placeholder='123.456.789-10' onChange={e => enviaDados({cpf: e.target.value})} value={dados.cpf} required/>
                 </Form.Group>
             </section>
     )

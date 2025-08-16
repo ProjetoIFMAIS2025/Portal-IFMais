@@ -17,17 +17,25 @@ function CadastroPage(){
 
     //Armazena temporariamente os dados do usuário
     const [etapaDados, setEtapaDados] = useState({
-        etapa1: {},
-        etapa2: {},
-        etapa3: {},
+        nome: "",
+        nomeSocial: "",
+        dataNasc: "",
+        cpf: "",
+        telefone: "",
+        email: "",
+        senha: "",
+        confirmarSenha: "",
+        cep: "",
+        UF: "",
+        cidade: "",
+        bairro: "",
+        rua: "",
+        numeroCasa: ""
     })
     
     //Função para alterar valores temporários do usuário
-    const atualizarDadosEtapa = (etapa, dados) => {
-        setEtapaDados(prev => ({
-            ...prev,
-            [etapa]: dados
-        }));
+    const atualizarDadosEtapa = (novosDados) => {
+        setEtapaDados(d => ({...d, ...novosDados}));
 
         console.log(etapaDados);
     }
@@ -53,15 +61,15 @@ function CadastroPage(){
 
             <Form>
                 {etapaAtual == 1 &&
-                    <CEtapa1 enviaDados={(dados) => atualizarDadosEtapa("etapa1", dados)}/>
+                    <CEtapa1 enviaDados={atualizarDadosEtapa} dados={etapaDados}/>
                 }
 
                 {etapaAtual == 2 &&
-                    <CEtapa2 enviaDados={(dados) => atualizarDadosEtapa("etapa2", dados)}/>
+                    <CEtapa2 enviaDados={atualizarDadosEtapa} dados={etapaDados}/>
                 }
 
                 {etapaAtual == 3 &&
-                    <CEtapa3 enviaDados={(dados) => atualizarDadosEtapa("etapa3", dados)}/>
+                    <CEtapa3 enviaDados={atualizarDadosEtapa} dados={etapaDados}/>
                 }
 
             </Form>

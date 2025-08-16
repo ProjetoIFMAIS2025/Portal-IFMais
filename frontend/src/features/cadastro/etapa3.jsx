@@ -4,42 +4,33 @@ import Form from 'react-bootstrap/Form';
 
 import InputDados from '../../components/inputDados';
 
-function CEtapa3({ enviaDados }){
-
-    const [dados, setDados] = useState({
-        cep: "",
-        UF: "",
-        cidade: "",
-        bairro: "",
-        rua: "",
-        numeroCasa: ""
-    })
+function CEtapa3({ enviaDados, dados }){
 
     function limpaFormCEP(){
-    setDados(d => ({
-        ...d,
+    enviaDados({
         UF: "",
         cidade: "",
         bairro: "",
         rua: ""
-    }));
+    });
 }
 
     function meu_callback(conteudo){
     if(!("erro" in conteudo)) {
-        setDados(d => ({
-            ...d,
+        enviaDados({
             UF: conteudo.uf,
             cidade: conteudo.localidade,
             bairro: conteudo.bairro,
             rua: conteudo.logradouro
-        }));
+        });
     } else {
         limpaFormCEP();
     }
 }
 
     function pesquisaCEP(valorCEP){
+
+        enviaDados({cep: valorCEP}); //Add cep aos dados
 
         //Nova variável "cep" somente com dígitos.
         var cepInput = valorCEP.toString().replace(/\D/g, '');
@@ -52,8 +43,6 @@ function CEtapa3({ enviaDados }){
             
             //Valida o formato do CEP
             if(validaCEP.test(cepInput)){
-
-                setDados({...dados, cep: cepInput}); //Add cep aos dados
 
                 //Cria elemento script
                 var scriptCEP = document.createElement('script');
@@ -78,10 +67,6 @@ function CEtapa3({ enviaDados }){
         window.meu_callback = meu_callback;
     }, [])
 
-    useEffect(() => {
-        enviaDados(dados);
-    }, [dados])
-
     const inputCEP = useMask({
         mask: '_____-___',
         replacement: { _: /\d/ },
@@ -91,14 +76,23 @@ function CEtapa3({ enviaDados }){
             <section>
                 <Form.Group className="mb-3" controlId="cepUsuario">
                     <Form.Label>CEP</Form.Label>
-                    <Form.Control ref={inputCEP} type="text" placeholder='12345-678' onBlur={(e) => pesquisaCEP(e.target.value)} required/>
+                    <Form.Control ref={inputCEP} type="text" placeholder='12345-678'
+                    onChange={e => {
+                        const value = e.target.value;
+                        enviaDados({ cep: value });
+                        if (value.replace(/\D/g, '').length === 8) {
+                            pesquisaCEP(value);
+                        }
+                    }}
+                    value={dados.cep}
+                    required/>
                 </Form.Group>
 
                 <InputDados
                     idForm="ufUsuario"
                     labelForm="Estado"
                     placeholderInput="PR"
-                    //funcDados={(e) => setDados({...dados, email: e.target.value})}
+                    funcDados={e => enviaDados({UF: e.target.value})}
                     value={dados.UF}
                 />
 
@@ -106,7 +100,7 @@ function CEtapa3({ enviaDados }){
                     idForm="cidadeUsuario"
                     labelForm="Cidade"
                     placeholderInput="Telêmaco Borba"
-                    //funcDados={(e) => setDados({...dados, senha: e.target.value})}
+                    funcDados={e => enviaDados({cidade: e.target.value})}
                     value={dados.cidade}
                 />
 
@@ -114,7 +108,7 @@ function CEtapa3({ enviaDados }){
                     idForm="bairroUsuario"
                     labelForm="Bairro"
                     placeholderInput="Jardim Bandeirantes"
-                    //funcDados={(e) => setDados({...dados, bairro: e.target.value})}
+                    funcDados={e => enviaDados({bairro: e.target.value})}
                     value={dados.bairro}
                 />
 
@@ -122,7 +116,7 @@ function CEtapa3({ enviaDados }){
                     idForm="ruaUsuario"
                     labelForm="Rua"
                     placeholderInput="PR-160"
-                    //funcDados={(e) => setDados({...dados, bairro: e.target.value})}
+                    funcDados={e => enviaDados({rua: e.target.value})}
                     value={dados.rua}
                 />
 
@@ -131,7 +125,7 @@ function CEtapa3({ enviaDados }){
                     labelForm="Número"
                     placeholderInput="km 19-5"
                     value={dados.numeroCasa}
-                    funcDados={(e) => setDados(d => ({ ...d, numeroCasa: e.target.value }))}
+                    funcDados={e => enviaDados({numeroCasa: e.target.value})}
                 />
             </section>
     )
