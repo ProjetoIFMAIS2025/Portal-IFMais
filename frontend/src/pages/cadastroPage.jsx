@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 import CEtapa1 from "../features/cadastro/etapa1";
 import CEtapa2 from '../features/cadastro/etapa2'
@@ -36,10 +36,6 @@ function CadastroPage(){
         rua: "",
         numeroCasa: "",
         tipo: "",
-        matricula: "",
-        cnpj: "",
-        empresaRazao: "",
-        empresaNome: ""
     })
 
     const [dadosEstudante, setDadosEstudante] = useState({
@@ -60,25 +56,6 @@ function CadastroPage(){
         setState(d => ({...d, ...novosDados}));
 
         console.log(dadosEmpresa)
-    }
-
-    //Função para alterar valores temporários do usuário
-    const atualizarDadosEtapa = (novosDados) => {
-        setEtapaDados(d => ({...d, ...novosDados}));
-
-        console.log(etapaDados);
-    }
-
-    const atualizarDadosEstudantes = (novosDados) => {
-        setDadosEstudante(d => ({...d, ...novosDados}));
-
-        console.log(dadosEstudante);
-    }
-
-    const atualizarDadosEmpresa = (novosDados) => {
-        setDadosEstudante(d => ({...d, ...novosDados}));
-
-        console.log(dadosEstudante);
     }
 
     //muda Etapa Atual
@@ -110,15 +87,15 @@ function CadastroPage(){
                 {etapaDados.tipo == "empresa" && etapaAtual == 1 && <CEtapaEmpresa enviaDados={(novosDados) => atualizarDados(setDadosEmpresa, novosDados)} dados={dadosEmpresa}/>}
 
                 {etapaAtual == 2 &&
-                    <CEtapa2 enviaDados={atualizarDadosEtapa} dados={etapaDados}/>
+                    <CEtapa2 enviaDados={(novosDados) => atualizarDados(setEtapaDados, novosDados)} dados={etapaDados}/>
                 }
 
                 {etapaAtual == 3 &&
-                    <CEtapa3 enviaDados={atualizarDadosEtapa} dados={etapaDados}/>
+                    <CEtapa3 enviaDados={(novosDados) => atualizarDados(setEtapaDados, novosDados)} dados={etapaDados}/>
                 }
 
                 {etapaAtual == 4 &&
-                    <CEtapa4 enviaDados={atualizarDadosEtapa} dados={etapaDados}/>
+                    <CEtapa4 enviaDados={(novosDados) => atualizarDados(setEtapaDados, novosDados)} dados={etapaDados}/>
                 }
 
             </Form>

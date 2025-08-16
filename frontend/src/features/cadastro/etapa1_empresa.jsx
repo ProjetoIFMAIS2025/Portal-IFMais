@@ -15,10 +15,7 @@ function CEtapaEmpresa({ enviaDados, dados }){
             <Form.Group className="mb-3" controlId="cepUsuario">
                 <Form.Label>CNPJ</Form.Label>
                 <Form.Control ref={inputCNPJ} type="text" placeholder='00.000.000/0000-00'
-                onChange={e => {
-                    const value = e.target.value;
-                    enviaDados({ cnpj: value });
-                }}
+                onChange={e => { enviaDados({ cnpj: e.target.value });}}
                 value={dados.cnpj}
                 required/>
             </Form.Group>
