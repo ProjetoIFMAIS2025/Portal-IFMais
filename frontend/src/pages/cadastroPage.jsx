@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { use, useState } from "react";
+
+import { validacaoTipo, validacaoEstudante, validacaoEmpresa } from "../utils/validacoes";
 
 import CEtapa1 from "../features/cadastro/etapa1";
 import CEtapa2 from '../features/cadastro/etapa2'
@@ -24,7 +26,6 @@ function CadastroPage(){
         nome: "",
         nomeSocial: "",
         dataNasc: "",
-        cpf: "",
         telefone: "",
         email: "",
         senha: "",
@@ -54,12 +55,62 @@ function CadastroPage(){
     //Função genérica para alterar valores temporários do usuário
     const atualizarDados = (setState, novosDados) => {
         setState(d => ({...d, ...novosDados}));
-
-        console.log(dadosEmpresa)
     }
 
     //muda Etapa Atual
     const [etapaAtual, setEtapaAtual] = useState(1);
+
+    const [erros, setErros] = useState({});
+
+    function checarErros(errosTemp){
+        if(Object.keys(errosTemp).length > 0){
+            setErros(errosTemp)
+        } else {
+            setErros({});
+        }
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        let errosTemp = {};
+
+        switch (etapaAtual) {
+            case 1:
+
+                const errosTemp = validacaoTipo(etapaDados);
+                if(Object.keys(errosTemp).length > 0){
+                    setErros(errosTemp);
+                } else {
+
+                    setErros({});
+
+                    if (etapaDados.tipo == "estudante") {
+                        const errosTemp = validacaoEstudante(etapaDados);
+                        checarErros(errosTemp);
+                    } else if (etapaDados.tipo == "empresa") {
+                        const errosTemp = validacaoEmpresa(etapaDados);
+                        checarErros(errosTemp);
+                    }
+
+                }
+
+                break;
+
+            case 2:
+                break;
+        
+            default:
+                break;
+        }
+
+        setErros(errosTemp);
+
+        // Só avança se não houver erros
+        if (Object.keys(errosTemp).length === 0) {
+            setEtapaAtual(etapaAtual + 1);
+        }
+    }
     
 
     return (
@@ -79,12 +130,12 @@ function CadastroPage(){
 
             <Form>
                 {etapaAtual == 1 &&
-                    <CEtapa1 enviaDados={(novosDados) => atualizarDados(setEtapaDados, novosDados)} dados={etapaDados}/>
+                    <CEtapa1 enviaDados={(novosDados) => atualizarDados(setEtapaDados, novosDados)} dados={etapaDados} erros={erros}/>
                 }
 
-                {etapaDados.tipo == "estudante" && etapaAtual == 1 && <CEtapaEstudante enviaDados={(novosDados) => atualizarDados(setDadosEstudante, novosDados)} dados={dadosEstudante}/>}
+                {etapaDados.tipo == "estudante" && etapaAtual == 1 && <CEtapaEstudante enviaDados={(novosDados) => atualizarDados(setDadosEstudante, novosDados)} dados={dadosEstudante} erros={erros}/>}
 
-                {etapaDados.tipo == "empresa" && etapaAtual == 1 && <CEtapaEmpresa enviaDados={(novosDados) => atualizarDados(setDadosEmpresa, novosDados)} dados={dadosEmpresa}/>}
+                {etapaDados.tipo == "empresa" && etapaAtual == 1 && <CEtapaEmpresa enviaDados={(novosDados) => atualizarDados(setDadosEmpresa, novosDados)} dados={dadosEmpresa} erros={erros}/>}
 
                 {etapaAtual == 2 &&
                     <CEtapa2 enviaDados={(novosDados) => atualizarDados(setEtapaDados, novosDados)} dados={etapaDados}/>
@@ -107,7 +158,7 @@ function CadastroPage(){
                 </Button> }
 
                 {etapaAtual < 4 && 
-                <Button variant="primary" type="button" onClick={() => setEtapaAtual(etapaAtual + 1)} className="d-block mb-3 ms-auto me-auto w-50">
+                <Button variant="primary" type="button" onClick={handleSubmit} className="d-block mb-3 ms-auto me-auto w-50">
                     Próximo
                 </Button> }
 

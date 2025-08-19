@@ -4,7 +4,7 @@ import CEtapaEstudante from './etapa1_estudante';
 
 import InputDados from '../../components/inputDados';
 
-function CEtapa4({ enviaDados, dados }){
+function CEtapa4({ enviaDados, dados, erros }){
 
    return (
         <section>
@@ -12,7 +12,8 @@ function CEtapa4({ enviaDados, dados }){
 
             <Form.Group>
                 <Form.Label>Desejo me cadastrar como...</Form.Label>
-                <Form.Select aria-label='Desejo me cadastra como: ' className='mb-3' 
+                <Form.Select aria-label='Desejo me cadastra como: ' className='mb-1' 
+                isInvalid={!!erros.tipo}
                 onChange={e => {
                     const value = e.target.value;
 
@@ -24,6 +25,9 @@ function CEtapa4({ enviaDados, dados }){
                     <option value="estudante">Estudante</option>
                     <option value="empresa">Empresa</option>
                 </Form.Select>
+                <Form.Control.Feedback type="invalid" className='mb-3'>
+                    {erros.tipo}
+                </Form.Control.Feedback>
             </Form.Group>
 
          
