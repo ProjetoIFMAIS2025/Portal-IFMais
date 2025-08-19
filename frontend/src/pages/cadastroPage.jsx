@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { use, useState } from "react";
 
-import { validacaoTipo, validacaoEstudante, validacaoEmpresa } from "../utils/validacoes";
+import { validacaoTipo, validacaoEstudante, validacaoEmpresa } from "../utils/validacoes/valEtapa1";
 
 import CEtapa1 from "../features/cadastro/etapa1";
 import CEtapa2 from '../features/cadastro/etapa2'
@@ -78,7 +78,7 @@ function CadastroPage(){
         switch (etapaAtual) {
             case 1:
 
-                const errosTemp = validacaoTipo(etapaDados);
+                errosTemp = validacaoTipo(etapaDados);
                 if(Object.keys(errosTemp).length > 0){
                     setErros(errosTemp);
                 } else {
@@ -86,10 +86,10 @@ function CadastroPage(){
                     setErros({});
 
                     if (etapaDados.tipo == "estudante") {
-                        const errosTemp = validacaoEstudante(etapaDados);
+                        errosTemp = validacaoEstudante(dadosEstudante);
                         checarErros(errosTemp);
                     } else if (etapaDados.tipo == "empresa") {
-                        const errosTemp = validacaoEmpresa(etapaDados);
+                        errosTemp = validacaoEmpresa(dadosEmpresa);
                         checarErros(errosTemp);
                     }
 
@@ -103,8 +103,6 @@ function CadastroPage(){
             default:
                 break;
         }
-
-        setErros(errosTemp);
 
         // Só avança se não houver erros
         if (Object.keys(errosTemp).length === 0) {
@@ -138,7 +136,7 @@ function CadastroPage(){
                 {etapaDados.tipo == "empresa" && etapaAtual == 1 && <CEtapaEmpresa enviaDados={(novosDados) => atualizarDados(setDadosEmpresa, novosDados)} dados={dadosEmpresa} erros={erros}/>}
 
                 {etapaAtual == 2 &&
-                    <CEtapa2 enviaDados={(novosDados) => atualizarDados(setEtapaDados, novosDados)} dados={etapaDados}/>
+                    <CEtapa2 enviaDados={(novosDados) => atualizarDados(setEtapaDados, novosDados)} dados={etapaDados} erros={erros}/>
                 }
 
                 {etapaAtual == 3 &&

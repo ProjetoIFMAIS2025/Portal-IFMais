@@ -53,11 +53,18 @@ function CEtapaEmpresa({ enviaDados, dados, erros }){
 
             <Form.Group className='mb-3' controlId='empresaSobre'>
                 <Form.Label>Descreva sua Empresa</Form.Label>
-                <Form.Control as="textarea" rows={3} isInvalid={!!erros.empresaSobre}/>
+                <Form.Control
+                    as="textarea"
+                    rows={3}
+                    value={dados.empresaSobre} // <-- vincula ao state
+                    onChange={e => enviaDados({ empresaSobre: e.target.value })} // <-- atualiza state
+                    isInvalid={!!erros.empresaSobre}
+                />
                 <Form.Control.Feedback type="invalid" className='mb-3'>
                     {erros.empresaSobre}
                 </Form.Control.Feedback>
             </Form.Group>
+
         </>
    )
 

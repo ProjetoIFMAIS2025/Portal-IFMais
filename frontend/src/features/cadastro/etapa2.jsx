@@ -2,7 +2,7 @@ import { useMask } from '@react-input/mask';
 
 import InputDados from '../../components/inputDados';
 
-function CEtapa1({ enviaDados, dados }){
+function CEtapa1({ enviaDados, dados, erros }){
 
     const inputCPF = useMask({
         mask: '___.___.___-__',
