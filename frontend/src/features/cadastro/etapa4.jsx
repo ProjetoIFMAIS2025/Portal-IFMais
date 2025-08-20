@@ -110,7 +110,7 @@ function CEtapa3({ enviaDados, dados, erros }){
                     placeholderInput="Telêmaco Borba"
                     funcDados={e => enviaDados({cidade: e.target.value})}
                     value={dados.cidade}
-                    erros={erros.UF}
+                    erros={erros.cidade}
                 />
 
                 <InputDados

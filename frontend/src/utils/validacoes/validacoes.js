@@ -27,10 +27,11 @@ export const checarTelefone = (telefone) => {
     return null;
 }
 
+//Checa todos os campos e verifica se estão vazios
 export function passarErros(erros, camposObrigatorios, dados) {
-    Object.entries(camposObrigatorios).forEach(([campo, nomeBonito]) => {
-        const erro = checarVazio(dados[campo], nomeBonito);
-        if (erro) erros[campo] = erro;
+    Object.entries(camposObrigatorios).forEach(([campo, nomeBonito]) => { //Passa pela lista de campos
+        const erro = checarVazio(dados[campo], nomeBonito); //Checa a lista selecionada
+        if (erro) erros[campo] = erro; //Retorna um erro caso tenha
     });
 }
 

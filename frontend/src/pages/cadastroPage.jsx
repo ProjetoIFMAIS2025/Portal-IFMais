@@ -63,8 +63,10 @@ function CadastroPage(){
     //muda Etapa Atual
     const [etapaAtual, setEtapaAtual] = useState(1);
 
+    //Armazena todos os erros do formulário
     const [erros, setErros] = useState({});
 
+    //Função que checa se há erros no formulário
     function checarErros(errosTemp){
         if(Object.keys(errosTemp).length > 0){
             setErros(errosTemp)
@@ -73,25 +75,27 @@ function CadastroPage(){
         }
     }
 
+    //Constante botão
     const handleSubmit = (e) => {
-        e.preventDefault();
+        e.preventDefault(); //previne que o formulário resete
 
-        let errosTemp = {};
+        let errosTemp = {}; //Armazena temporariamente todos os erros
 
         switch (etapaAtual) {
             case 1:
 
+                //Checa se há erros no input Tipo
                 errosTemp = validacaoTipo(etapaDados);
                 if(Object.keys(errosTemp).length > 0){
                     setErros(errosTemp);
-                } else {
+                } else { //Se não tive, identifica se o usuário escolheu entre estudante ou empresa
 
-                    setErros({});
+                    setErros({}); //Limpa erros corrigidos
 
-                    if (etapaDados.tipo == "estudante") {
+                    if (etapaDados.tipo == "estudante") { //Se for estudante, procura por erros sobre
                         errosTemp = validacaoEstudante(dadosEstudante);
                         checarErros(errosTemp);
-                    } else if (etapaDados.tipo == "empresa") {
+                    } else if (etapaDados.tipo == "empresa") { //Se for empresa, procura por erros sobre
                         errosTemp = validacaoEmpresa(dadosEmpresa);
                         checarErros(errosTemp);
                     }
@@ -101,39 +105,20 @@ function CadastroPage(){
                 break;
 
             case 2:
-
-                errosTemp = validarPessoais(etapaDados);
-
-                if(Object.keys(errosTemp).length > 0){
-                    setErros(errosTemp);
-                } else {
-                    setErros({})
-                }
-
+                errosTemp = validarPessoais(etapaDados) //Armazena erros temporários
+                checarErros(errosTemp); //Checa
                 break;
 
             case 3:
-
-                errosTemp = validarInfo(etapaDados); 
-
-                if(Object.keys(errosTemp).length > 0){
-                    setErros(errosTemp);
-                } else {
-                    setErros({})
-                }
-
+                errosTemp = validarInfo(etapaDados);
+                checarErros(errosTemp);
                 break;
 
             case 4:
-
                 errosTemp = validarCEP(etapaDados);
-
-                if(Object.keys(errosTemp).length > 0){
-                    setErros(errosTemp);
-                } else {
-                    setErros({})
-                }
-        
+                checarErros(errosTemp);
+                break;
+                
             default:
                 break;
         }
