@@ -21,6 +21,7 @@ function CEtapa1({ enviaDados, dados, erros }){
                     placeholderInput="Lucas da Silva"
                     funcDados={e => enviaDados({nome: e.target.value})}
                     value={dados.nome}
+                    erros={erros.nome}
                 />
 
                 <InputDados
@@ -30,6 +31,7 @@ function CEtapa1({ enviaDados, dados, erros }){
                     funcDados={e => enviaDados({nomeSocial: e.target.value})}
                     isRequired={false}
                     value={dados.nomeSocial}
+                    erros={erros.nomeSocial}
                 />
 
                 <InputDados
@@ -39,6 +41,7 @@ function CEtapa1({ enviaDados, dados, erros }){
                     placeholderInput=""
                     funcDados={e => enviaDados({dataNasc: e.target.value})}
                     value={dados.dataNasc}
+                    erros={erros.dataNasc}
                 />
             </section>
     )

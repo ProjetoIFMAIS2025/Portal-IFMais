@@ -4,7 +4,7 @@ import Form from 'react-bootstrap/Form';
 
 import InputDados from '../../components/inputDados';
 
-function CEtapa3({ enviaDados, dados }){
+function CEtapa3({ enviaDados, dados, erros }){
 
     function limpaFormCEP(){
     enviaDados({
@@ -88,7 +88,11 @@ function CEtapa3({ enviaDados, dados }){
                         }
                     }}
                     value={dados.cep}
+                    isInvalid={!!erros.cep}
                     required/>
+                    <Form.Control.Feedback type="invalid" className='mb-3'>
+                        {erros.cep}
+                    </Form.Control.Feedback>
                 </Form.Group>
 
                 <InputDados
@@ -97,6 +101,7 @@ function CEtapa3({ enviaDados, dados }){
                     placeholderInput="PR"
                     funcDados={e => enviaDados({UF: e.target.value})}
                     value={dados.UF}
+                    erros={erros.UF}
                 />
 
                 <InputDados
@@ -105,6 +110,7 @@ function CEtapa3({ enviaDados, dados }){
                     placeholderInput="Telêmaco Borba"
                     funcDados={e => enviaDados({cidade: e.target.value})}
                     value={dados.cidade}
+                    erros={erros.UF}
                 />
 
                 <InputDados
@@ -113,6 +119,7 @@ function CEtapa3({ enviaDados, dados }){
                     placeholderInput="Jardim Bandeirantes"
                     funcDados={e => enviaDados({bairro: e.target.value})}
                     value={dados.bairro}
+                    erros={erros.bairro}
                 />
 
                 <InputDados
@@ -121,6 +128,7 @@ function CEtapa3({ enviaDados, dados }){
                     placeholderInput="PR-160"
                     funcDados={e => enviaDados({rua: e.target.value})}
                     value={dados.rua}
+                    erros={erros.rua}
                 />
 
                 <InputDados
@@ -129,6 +137,7 @@ function CEtapa3({ enviaDados, dados }){
                     placeholderInput="km 19-5"
                     value={dados.numeroCasa}
                     funcDados={e => enviaDados({numeroCasa: e.target.value})}
+                    erros={erros.numeroCasa}
                 />
             </section>
     )

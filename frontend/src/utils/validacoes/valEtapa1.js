@@ -1,4 +1,4 @@
-import { checarVazio } from "./validacoes.js";
+import { checarVazio, checarTamanho, passarErros } from "./validacoes.js";
 
 export const validacaoTipo = (dados) => {
     const erros = {};
@@ -9,13 +9,6 @@ export const validacaoTipo = (dados) => {
     return erros;
 }
 
-function passarErros(erros, camposObrigatorios, dados) {
-    Object.entries(camposObrigatorios).forEach(([campo, nomeBonito]) => {
-        const erro = checarVazio(dados[campo], nomeBonito);
-        if (erro) erros[campo] = erro;
-    });
-}
-
 export const validacaoEstudante = (dados) => {
     const erros = {};
 
@@ -24,7 +17,13 @@ export const validacaoEstudante = (dados) => {
         cpf: "CPF"
     }
 
-    passarErros(erros, camposObrigatorios, dados)
+    passarErros(erros, camposObrigatorios, dados);
+
+    if(!erros.cpf){
+        const valCPF = checarTamanho(dados.cpf, "CPF", 13)
+        if(valCPF) erros.cpf = valCPF;
+    }
+
 
     return erros;
 }
@@ -39,7 +38,12 @@ export const validacaoEmpresa = (dados) => {
         empresaSobre: "Sobre a Empresa"
     };
 
-    passarErros(erros, camposObrigatorios, dados)
+    passarErros(erros, camposObrigatorios, dados);
+
+    if(!erros.cnpj){
+        const valCNPJ = checarTamanho(dados.cnpj, "CNPJ", 18);
+        if(valCNPJ) erros.cnpj = valCNPJ;
+    }
 
     return erros;
 }

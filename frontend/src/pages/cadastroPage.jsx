@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
-import { use, useState } from "react";
+import { useState } from "react";
 
 import { validacaoTipo, validacaoEstudante, validacaoEmpresa } from "../utils/validacoes/valEtapa1";
+import { validarPessoais } from "../utils/validacoes/valEtapa2";
+import { validarInfo } from "../utils/validacoes/valEtapa3";
+import { validarCEP } from "../utils/validacoes/valEtapa4";
 
 import CEtapa1 from "../features/cadastro/etapa1";
 import CEtapa2 from '../features/cadastro/etapa2'
@@ -98,7 +101,38 @@ function CadastroPage(){
                 break;
 
             case 2:
+
+                errosTemp = validarPessoais(etapaDados);
+
+                if(Object.keys(errosTemp).length > 0){
+                    setErros(errosTemp);
+                } else {
+                    setErros({})
+                }
+
                 break;
+
+            case 3:
+
+                errosTemp = validarInfo(etapaDados); 
+
+                if(Object.keys(errosTemp).length > 0){
+                    setErros(errosTemp);
+                } else {
+                    setErros({})
+                }
+
+                break;
+
+            case 4:
+
+                errosTemp = validarCEP(etapaDados);
+
+                if(Object.keys(errosTemp).length > 0){
+                    setErros(errosTemp);
+                } else {
+                    setErros({})
+                }
         
             default:
                 break;
@@ -140,11 +174,11 @@ function CadastroPage(){
                 }
 
                 {etapaAtual == 3 &&
-                    <CEtapa3 enviaDados={(novosDados) => atualizarDados(setEtapaDados, novosDados)} dados={etapaDados}/>
+                    <CEtapa3 enviaDados={(novosDados) => atualizarDados(setEtapaDados, novosDados)} dados={etapaDados} erros={erros}/>
                 }
 
                 {etapaAtual == 4 &&
-                    <CEtapa4 enviaDados={(novosDados) => atualizarDados(setEtapaDados, novosDados)} dados={etapaDados}/>
+                    <CEtapa4 enviaDados={(novosDados) => atualizarDados(setEtapaDados, novosDados)} dados={etapaDados} erros={erros}/>
                 }
 
             </Form>
@@ -161,7 +195,7 @@ function CadastroPage(){
                 </Button> }
 
                 {etapaAtual === 4 && 
-                <Button variant="primary" type="submit" className="d-block mb-3 ms-auto me-auto w-50">
+                <Button variant="primary" type="button" onClick={handleSubmit} className="d-block mb-3 ms-auto me-auto w-50">
                     Finalizar
                 </Button> }
             </div>

@@ -1,12 +1,12 @@
 //Checar se campo está vazio
 export const checarVazio = (campo, string) => {
-    if(!campo) return string + " é obrigatório!"; //Checa se o campo está vazio e retorna uma mensagem obrigatória
+    if(!campo) return string + " é obrigatório(a)!"; //Checa se o campo está vazio e retorna uma mensagem obrigatória
     return null; //Retorna nada se estiver tudo certo
 }
 
 //Checar se o campo tem o tamanho desejado
 export const checarTamanho = (campo, string, tamanho) => {
-    if(campo.length < tamanho) return string + " deve ter um tamanho mínimo de: " + tamanho; //Checa o tamanho e retorna uma string de aviso
+    if(campo.length < tamanho) return string + " inválido!"; //Checa o tamanho e retorna uma string de aviso
     return null; //Retorna nada se estiver tudo certo
 }
 
@@ -25,5 +25,12 @@ export const checarTelefone = (telefone) => {
     if (numeros.length < 10) return "Telefone inválido";
 
     return null;
+}
+
+export function passarErros(erros, camposObrigatorios, dados) {
+    Object.entries(camposObrigatorios).forEach(([campo, nomeBonito]) => {
+        const erro = checarVazio(dados[campo], nomeBonito);
+        if (erro) erros[campo] = erro;
+    });
 }
 

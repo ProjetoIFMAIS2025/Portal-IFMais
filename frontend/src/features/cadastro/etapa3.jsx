@@ -1,6 +1,6 @@
 import InputDados from '../../components/inputDados';
 
-function CEtapa2({ enviaDados, dados }){
+function CEtapa2({ enviaDados, dados, erros }){
 
     return(
             <section>
@@ -14,6 +14,7 @@ function CEtapa2({ enviaDados, dados }){
                     funcDados={e => enviaDados({telefone: e.target.value})}
                     value={dados.telefone}
                     isRequired={false}
+                    erros={erros.telefone}
                 />
 
                 <InputDados
@@ -22,6 +23,7 @@ function CEtapa2({ enviaDados, dados }){
                     placeholderInput="nome@exemplo.com"
                     funcDados={e => enviaDados({email: e.target.value})}
                     value={dados.email}
+                    erros={erros.email}
                 />
 
                 <InputDados
@@ -31,6 +33,7 @@ function CEtapa2({ enviaDados, dados }){
                     placeholderInput="*******"
                     funcDados={e => enviaDados({senha: e.target.value})}
                     value={dados.senha}
+                    erros={erros.senha}
                 />
 
                 <InputDados
@@ -40,6 +43,7 @@ function CEtapa2({ enviaDados, dados }){
                     placeholderInput="*******"
                     funcDados={e => enviaDados({confirmarSenha: e.target.value})}
                     value={dados.confirmarSenha}
+                    erros={erros.confirmarSenha}
                 />
             </section>
     )
