@@ -30,7 +30,7 @@ Antes de clonar os arquivos para seu espaço de trabalho é necessário saber de
 
 # Bibliotecas utilizadas📚
 * [Axios](https://www.npmjs.com/package/axios)
-* [React Router](https://reactrouter.com)
+* [React Router Dom](https://www.npmjs.com/package/react-router-dom)
 * [react-input-mask](https://www.npmjs.com/package/react-input-mask)
 * [React Bootstrap](https://react-bootstrap.netlify.app)
 
