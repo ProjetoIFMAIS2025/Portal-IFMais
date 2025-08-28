@@ -1,0 +1,27 @@
+h1 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.cabecalho {
+
+    max-height: 100px;
+
+    button {
+        border: none;
+        background: none;
+    }
+
+}
+
+.offcanvas-header {
+    margin: 0 20px;
+    border-bottom: 2px solid gray;
+}
+
+.offcanvas .btn-close {
+    transform: scale(1.5); // aumenta 50%
+    margin-top: 10px;
+    margin-bottom: auto;
+}
+
