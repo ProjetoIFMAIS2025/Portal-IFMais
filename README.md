@@ -33,7 +33,7 @@ Antes de clonar os arquivos para seu espaço de trabalho é necessário saber de
 * [React Router](https://reactrouter.com)
 * [react-input-mask](https://www.npmjs.com/package/react-input-mask)
 * [React Bootstrap](https://react-bootstrap.netlify.app)
-* [SASS](https://sass-lang.com)
+* [SASS]([https://sass-lang.com](https://sass-lang.com/install/))
 
 
 
