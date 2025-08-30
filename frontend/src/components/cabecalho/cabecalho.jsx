@@ -44,29 +44,30 @@ export default function Cabecalho(){
             </Offcanvas.Header>
             <Offcanvas.Body>
                 <nav>
-                    <div className='nav-item d-flex align-items-center ms-3 my-2'>
+                    <div className='nav-item bg-body-secondary'>
                         <i class="bi bi-house" style={navStyle}></i>
                         <h1 className='ms-2'>Ínicio</h1>
                     </div>
-                    <div className='nav-item d-flex align-items-center ms-3 my-2'>
+                    <div className='nav-item'>
                         <i class="bi bi-person-badge" style={navStyle}></i>
                         <h1 className='ms-2'>Perfil</h1>
                     </div>
-                    <div className='nav-item d-flex align-items-center ms-3 my-2'>
+                    <div className='nav-item'>
                         <i class="bi bi-clipboard" style={navStyle}></i>
                         <h1 className='ms-2'>Tarefas</h1>
                     </div>
-                    <div className='nav-item d-flex align-items-center ms-3 my-2'>
+                    <div className='nav-item'>
                         <i class="bi bi-gear" style={navStyle}></i>
                         <h1 className='ms-2'>Configurações</h1>
                     </div>
-                    <div className='nav-item d-flex align-items-center ms-3 my-2'>
+                    <div className='nav-item'>
                         <i class="bi bi-box-arrow-left" style={navStyle}></i>
                         <h1 className='ms-2'>Sair</h1>
                     </div>
                 </nav>
             </Offcanvas.Body>
         </Offcanvas>
+
         </main>
         )
 }

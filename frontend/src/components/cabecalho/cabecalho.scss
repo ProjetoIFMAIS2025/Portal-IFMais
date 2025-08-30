@@ -15,8 +15,26 @@ h1 {
 }
 
 .offcanvas-header {
-    margin: 0 20px;
-    border-bottom: 2px solid gray;
+    margin: 0 5px;
+}
+
+.offcanvas-body {
+    border-top: 2px solid gray;
+    
+    padding: 0;
+
+    nav {
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+
+            margin: 0.8em 0;
+            padding: 0 1em;
+        }
+
+    }
+
 }
 
 .offcanvas .btn-close {
@@ -24,4 +42,3 @@ h1 {
     margin-top: 10px;
     margin-bottom: auto;
 }
-
