@@ -43,6 +43,7 @@ export default function Cabecalho(){
                 </Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body>
+
                 <nav>
                     <div className='nav-item bg-body-secondary'>
                         <i class="bi bi-house" style={navStyle}></i>
@@ -65,6 +66,7 @@ export default function Cabecalho(){
                         <h1 className='ms-2'>Sair</h1>
                     </div>
                 </nav>
+                
             </Offcanvas.Body>
         </Offcanvas>
 

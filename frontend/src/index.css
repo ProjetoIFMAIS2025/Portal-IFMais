@@ -2,12 +2,18 @@
 
 :root {
   --font: "Ubuntu", sans-serif;
+
+  --cor-primaria: #17C245;
+  --cor-secundaria: #009DFF;
+  --cor-fundo: #EFEFEF;
+
+  --texto-alternativo: white;
 }
 
 body {
   min-height: 100vh;
 }
 
-main {
-  font-family: var(--font);
+html {
+  font-family: var(--font)!important;
 }
