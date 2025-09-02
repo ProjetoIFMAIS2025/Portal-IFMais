@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css'
 
 import HomePage from './pages/homePage'
+import Tarefa from './pages/tarefa'
 
 function App() {
 
@@ -11,6 +12,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/inicio" element={<HomePage />} />
+        <Route path="/tarefa" element={<Tarefa />} />
       </Routes>
     </BrowserRouter>
   )

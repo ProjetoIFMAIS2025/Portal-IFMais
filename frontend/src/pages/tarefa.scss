@@ -1,0 +1,110 @@
+.titulo {
+    color: var(--cor-primaria);
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.subTitulo {
+    font-size: 1rem!important;
+}
+
+.sobre-secao {
+    margin: 15px auto;
+    width: 90%;
+}
+
+.texto {
+    margin-top: 5px;
+}
+
+.voltar {
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    .voltar-icon {
+        font-size: 2rem;
+        margin-left: 15px;
+    }
+}
+
+.main {
+
+    .cabecalho-tarefa {
+
+        position: relative;
+        width: 100%;
+        height: 25vh;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .cabecalho-fundo-div, .cabecalho-infos {
+            position: absolute;
+        }
+    
+        .cabecalho-fundo-div {
+            display: flex;
+            width: 95vw;
+            height: 25vh;
+
+            background-image: url('../assets/fundo_ph.webp');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+
+            border: 2px solid black;
+        }
+
+        .cabecalho-infos {
+            display: flex;
+            gap: 10px;
+            align-items: flex-end;
+
+            bottom: -3rem;
+            left: 6vw;
+
+            .foto-empresa {
+                border: 2px solid black;
+            }
+
+            .cabecalho-icons {
+                font-size: 1.5rem;
+            }
+        }
+
+    }
+}
+
+.tarefaInfo {
+    margin-top: 5rem;
+    
+    .sobreHabilidades-habilidades {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 5px;
+
+        .sobreHabilidades-habilidade {
+            background-color: var(--cor-secundaria);
+            width: fit-content;
+            color: var(--texto-alternativo);
+            padding: 5px;
+            border-radius: 8px;
+        }
+    }
+}
+
+.denuncia {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+
+    color: var(--cor-destaque);
+    font-size: 1.25rem;
+
+    margin: 25px 0; 
+}
