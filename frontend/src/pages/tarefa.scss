@@ -106,5 +106,52 @@
     color: var(--cor-destaque);
     font-size: 1.25rem;
 
-    margin: 25px 0; 
+    margin: 25px 0 calc(15vh + 25px) 0; 
+
+}
+
+.botoes {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    position: fixed;
+    bottom: 0;
+
+    height: 15vh;
+    width: 100vw;
+
+    background-color: var(--cor-fundo);
+
+    .botao {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        font-weight: 1000;
+        font-size: 2rem;
+        text-align: center;
+
+        border-radius: 50%;
+
+        width: 4rem;
+        height: 4rem;
+
+        .botao-icon {
+            display:block;
+            color: var(--texto-alternativo);
+        }
+    }
+
+    .recusar {
+        background-color: var(--cor-destaque);
+    }
+
+    .conversar {
+        background-color: var(--cor-destaque-secundaria);
+    }
+
+    .aceitar {
+        background-color: var(--cor-primaria);
+    }
 }

@@ -8,6 +8,7 @@ export default function Tarefa(){
             <header className='voltar'>
                 <i className="bi bi-arrow-left-circle voltar-icon"></i>
             </header>
+
             <section className='main'>
                 <div className='cabecalho-tarefa'>
                     <div className='cabecalho-fundo-div'>        
@@ -71,6 +72,12 @@ export default function Tarefa(){
                     <h4 className='denuncia-texto'>Denunciar Empresa</h4>
                 </div>
             </section>
+
+            <footer className='botoes'>
+                <div className="botao recusar"><i class="bi bi-x-lg botao-icon"></i></div>
+                <div className="botao conversar"><i class="bi bi-chat-left botao-icon"></i></div>
+                <div className="botao aceitar"><i class="bi bi-check2 botao-icon"></i></div>
+            </footer>
         </main>
     )
 }
