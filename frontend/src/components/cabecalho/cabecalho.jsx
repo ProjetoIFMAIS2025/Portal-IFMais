@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
@@ -23,6 +24,8 @@ export default function Cabecalho(){
         fontSize: '2rem'
     }
 
+    const urlLink = useLocation().pathname;
+
     return(
         <main>
             <header className='cabecalho d-flex justify-content-between align-items-center p-3 bg-body-secondary'>
@@ -45,14 +48,14 @@ export default function Cabecalho(){
             <Offcanvas.Body>
 
                 <nav>
-                    <div className='nav-item bg-body-secondary'>
+                    <Link to="/inicio" className={urlLink == '/inicio' ? 'nav-item bg-body-secondary' : 'nav-item'}>
                         <i class="bi bi-house" style={navStyle}></i>
                         <h1 className='ms-2'>Ínicio</h1>
-                    </div>
-                    <div className='nav-item'>
+                    </Link>
+                    <Link to="/perfil" className={urlLink == '/perfil' ? 'nav-item bg-body-secondary' : 'nav-item'}>
                         <i class="bi bi-person-badge" style={navStyle}></i>
                         <h1 className='ms-2'>Perfil</h1>
-                    </div>
+                    </Link>
                     <div className='nav-item'>
                         <i class="bi bi-clipboard" style={navStyle}></i>
                         <h1 className='ms-2'>Tarefas</h1>

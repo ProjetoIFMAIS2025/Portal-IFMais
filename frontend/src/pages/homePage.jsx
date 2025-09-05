@@ -16,7 +16,7 @@ export default function HomePage(){
             <h1 className="home_titulo">Oportunidades</h1>
 
             <section className="home_tarefas">
-                <Tarefa/>
+                <Tarefa linkTarefa="/tarefa"/>
             </section>
         </main>
     )

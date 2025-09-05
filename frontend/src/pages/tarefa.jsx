@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 import PHFundo from '../assets/fundo_ph.webp'
 import PHUser from '../assets/ph.jpg'
 import './tarefa.scss'
@@ -6,7 +8,7 @@ export default function Tarefa(){
     return(
         <main>
             <header className='voltar'>
-                <i className="bi bi-arrow-left-circle voltar-icon"></i>
+                <Link to='/inicio'><i className="bi bi-arrow-left-circle voltar-icon"></i></Link>
             </header>
 
             <section className='main'>

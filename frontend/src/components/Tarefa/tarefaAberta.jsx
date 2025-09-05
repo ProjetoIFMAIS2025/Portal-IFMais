@@ -1,7 +1,8 @@
 import './tarefaAberta.scss'
 import PHIcon from '../../assets/ph.jpg'
+import { Link } from 'react-router-dom'
 
-export default function TarefaAberta(){
+export default function TarefaAberta({ linkTarefa }){
     return (
         <div className="tarefaAberta">
             <section className="tarefaAberta-secao1">
@@ -20,10 +21,10 @@ export default function TarefaAberta(){
                 <h3 className='tarefaAberta-tituloSobre tarefaAberta-titulo tarefaAberta-texto'>Sobre a Tarefa</h3>
                 <p className='tarefaAberta-sobreTarefa tarefaAberta-texto'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras condimentum sem a risus gravida facilisis. Vivamus id mauris suscipit, elementum lorem eget, pulvinar libero. Mauris lobortis eleifend volutpat. Duis commodo vel odio id pharetra. Sed rhoncus pharetra nisl, eget fermentum elit ornare sed. In maximus sodales vulputate. </p>
                 <div className='tarefaAberta-info'>
-                    <p className='tarefaAberta-prazo tarefaAberta-texto'><h4 className='tarefaAberta-prazoTitulo tarefaAberta-titulo'>Prazo: </h4> xx/05/2025 até xx/06/2025</p>
-                    <p className='tarefaAberta-status tarefaAberta-texto'><h4 className='tarefaAberta-statusTitulo tarefaAberta-titulo'>Quantidade: </h4> R$ 100,00</p>
+                    <p className='tarefaAberta-prazo tarefaAberta-texto'><span className='tarefaAberta-prazoTitulo tarefaAberta-titulo'>Prazo: </span> xx/05/2025 até xx/06/2025</p>
+                    <p className='tarefaAberta-status tarefaAberta-texto'><span className='tarefaAberta-statusTitulo tarefaAberta-titulo'>Quantidade: </span> R$ 100,00</p>
                 </div>
-                <button className='tarefaAberta-btn'>Ver Mais</button>
+                <Link to={linkTarefa} className='tarefaAberta-btn'>Ver Mais</Link>
             </section>
         </div>
     )
