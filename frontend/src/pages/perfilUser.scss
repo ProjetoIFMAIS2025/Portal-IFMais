@@ -1,0 +1,130 @@
+.perfil {
+
+    margin: 1.25rem;
+
+    .perfil-sessao {
+        margin: 1rem 0;
+    }
+
+    .perfil-cabecalho {
+
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+        .perfil-cabecalho-foto {
+            border-radius: 15px;
+        }
+
+        .perfil-cabecalho-info {
+
+            .perfil-cabecalho-info-item {
+                margin: 1rem 0;
+            }
+
+            .perfil-nome {
+                color: var(--cor-primaria);
+                font-size: 1.5rem;
+                font-weight: 700;
+            }
+
+            .perfil-area {  
+                font-size: 1.25rem;
+            }
+
+            .perfil-notas {
+                font-size: 1.25rem;
+            }
+
+            .perfil-nota {
+                margin: 0 0.25rem;
+            }
+        }
+    }
+
+    .perfil-conteudo-btns {
+
+            display: flex;
+            justify-content: space-between;
+
+            .btn-perfil {
+                background-color: white;
+                border: 2px solid var(--cor-primaria);
+                border-radius: 10px;
+                
+                width: 6.5rem;
+                height: 2.5rem;
+
+            
+            }
+
+            .btn-selecionado {
+                background-color: var(--cor-primaria);
+            }
+        }
+
+
+
+    .perfil-conteudo {
+
+        background-color: var(--cor-fundo);
+        border-radius: 15px;
+        padding: 1rem;
+
+        .perfil-conteudo-item {
+
+            .perfil-conteudo-titulo {
+                font-size: 1.25rem;
+                font-weight: 700;
+                color: var(--cor-primaria);
+                margin-bottom: 0.25rem;
+            }
+
+        }
+
+        .perfil-habilidades {
+
+            margin: 1rem 0;
+
+            .perfil-habilidades-blocos {
+
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.5rem;
+
+                .perfil-habilidades-item {
+                    color: var(--texto-alternativo);
+                    background-color: var(--cor-secundaria);
+                    border-radius: 10px;
+
+                    width: fit-content;
+                    padding: 0.5rem;
+                }
+            }
+        }
+
+        .perfil-formacoes {
+
+            .perfil-formacoes-blocos {
+
+                .perfil-formacoes-item {
+                    color: var(--texto-alternativo);
+                    background-color: var(--cor-secundaria);
+                    border-radius: 10px;
+
+                    padding: 0.5rem;
+
+                    .perfil-formacoes-item-line {
+                        margin: 0.5rem;
+                    }
+
+                    .perfil-formacoes-curso {
+                        font-weight: 700;
+                        text-align: center;
+                    }
+                }
+            }
+        }
+    }
+
+}
