@@ -1,0 +1,13 @@
+.perfil-tarefa {
+    background-color: var(--cor-secundaria);
+    color: var(--texto-alternativo);
+
+    padding: 1rem;
+
+    border-radius: 15px;
+
+    .perfil-tarefa-nomeEmpresa {
+        font-size: 1.30rem;
+        font-weight: 700;
+    }
+}

@@ -1,10 +1,18 @@
 import Cabecalho from '../components/cabecalho/cabecalho'
 
+import PerfilInicial from '../components/perfil/inicial/inicial'
+import TarefasConcluidas from '../components/perfil/tarefasConcluidas/tarefasConcluidas'
+import Graficos from '../components/perfil/graficos/graficos';
+
 import phUser from '../assets/ph.jpg'
 
 import './perfilUser.scss'
+import { useState } from 'react'
 
 export default function PerfilUsuario(){
+
+    const [sessaoAtual, setSessaoAtual] = useState(1);
+
     return (
         <main>
 
@@ -32,42 +40,16 @@ export default function PerfilUsuario(){
 
                 <section className='perfil-sessao perfil-conteudo-btns'>
                         
-                        <button className='btn-perfil btn-selecionado'>Sobre</button>
-                        <button className='btn-perfil'>Tarefas Finalizadas</button>
-                        <button className='btn-perfil'>Gráficos</button>
+                        <button className={sessaoAtual == 1 ? 'btn-perfil btn-selecionado' : 'btn-perfil'} onClick={() => setSessaoAtual(1)}>Sobre</button>
+                        <button className={sessaoAtual == 2 ? 'btn-perfil btn-selecionado' : 'btn-perfil'} onClick={() => setSessaoAtual(2)}>Tarefas Finalizadas</button>
+                        <button className={sessaoAtual == 3 ? 'btn-perfil btn-selecionado' : 'btn-perfil'} onClick={() => setSessaoAtual(3)}>Gráficos</button>
 
                 </section>
 
-
-                <section className='perfil-sessao perfil-conteudo'>
-                    
-                    <div className='perfil-conteudo-item perfil-sobre'>
-                        <h4 className='perfil-conteudo-titulo perfil-sobre-titulo'> Sobre Mim </h4>
-                        <p className='perfil-sobre-texto'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras condimentum sem a risus gravida facilisis. Vivamus id mauris suscipit, elementum lorem eget, pulvinar libero. Mauris lobortis eleifend volutpat. Duis commodo vel odio id pharetra. Sed rhoncus pharetra nisl, eget fermentum elit ornare sed. In maximus sodales vulputate. </p>
-                    </div>
-
-                    <div className='perfil-conteudo-item perfil-habilidades'>
-                        <h4 className='perfil-conteudo-titulo perfil-habilidades-titulo'>Minhas Habilidades</h4>
-                        <div className='perfil-habilidades-blocos'>
-                            <div className='perfil-habilidades-item'>Desenvolvimento Web</div>
-                            <div className='perfil-habilidades-item'>Front-End</div>
-                            <div className='perfil-habilidades-item'>Figma</div>
-                        </div>
-                    </div>
-
-                    <div className='perfil-conteudo-item perfil-formacoes'>
-                        <h4 className='perfil-conteudo-titulo perfil-formacoes-titulo'>Minhas Formações</h4>
-
-                        <div className='perfil-formacoes-blocos'>
-                            <div className='perfil-formacoes-item'>
-                                <h4 className='perfil-formacoes-item-line perfil-formacoes-curso'> Técnico em Análise e Desenvolvimento de Sistemas </h4>
-                                <p className='perfil-formacoes-item-line perfil-formacoes-periodo'> <span className='fw-bold'>Período:</span> 2024 - 2026 </p>
-                                <p className='perfil-formacoes-item-line perfil-formacoes-instituicao'> IFPR, Campus Telêmaco Borba </p>
-                            </div>
-                        </div>
-                    </div>
-
-                </section>
+                {sessaoAtual == 1 && <PerfilInicial/>}
+                {sessaoAtual == 2 && <TarefasConcluidas/>}
+                {sessaoAtual == 3 && <Graficos/>}
+                
 
             </div>
 
