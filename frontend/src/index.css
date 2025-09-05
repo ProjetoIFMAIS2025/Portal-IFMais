@@ -2,6 +2,14 @@
 
 :root {
   --font: "Ubuntu", sans-serif;
+
+  --cor-primaria: #17C245;
+  --cor-secundaria: #009DFF;
+  --cor-fundo: #EFEFEF;
+  --cor-destaque: #FF0000;
+  --cor-destaque-secundaria: #C2BC17;
+
+  --texto-alternativo: white;
 }
 
 body {
