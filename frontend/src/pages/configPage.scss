@@ -1,0 +1,42 @@
+.config {
+    
+    .config-title {
+        text-align: center;
+        margin: 1rem 0;
+    }
+
+    .config-block {
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .config-item {
+
+            display: flex;
+            align-items: center;
+            gap: 1em;
+
+            margin-bottom: 2em;
+
+            width: 80vw;
+
+            .config-item-icon {
+                font-size: 3rem;
+            }
+
+            .config-item-text  {
+
+                font-size: 1rem;
+
+                .config-item-titulo {
+                    font-weight: 700;
+                }
+
+                .config-item-texto {
+
+                }
+            }
+        }
+    }
+}
