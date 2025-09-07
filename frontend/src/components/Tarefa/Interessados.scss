@@ -1,57 +1,49 @@
-.tarefaAberta-titulo {
+.Interessados-titulo {
     color: var(--cor-primaria);
     font-weight: 700;
 }
 
-.tarefaAberta-texto {
+.Interessados-texto {
     font-size: 0.9rem;
     margin: 5px 0;
 }
 
-.tarefaAberta {
+.Interessados {
     width: 95%;
     padding: 15px;
-
-    display: flex;
-    justify-content: center;
 
     background-color: var(--cor-fundo);
     border-radius: 15px;
 
-    .tarefaAberta-secao1 {
+    .Interessados-info-habilidades {
+
+        .Interessados-habilidade {
+
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            
+        }
+    }
+
+    .Interessados-secao1 {
 
         width: 30%;
         margin-right: 10px;
         
-        .tarefaAberta-habilidadesTitulo {
+        .Interessados-habilidadesTitulo {
             margin-top: 10px;
         }
 
-        .tarefaAberta-habilidades {
-
-
-            .tarefaAberta-habilidade {
-
-                background-color: var(--cor-secundaria);
-                color: var(--texto-alternativo);
-
-                border-radius: 5px;
-
-                margin: 10px 0;
-                padding: 5px;
-
-                width: fit-content;
-                
-            }
-        }
+        
     }
 
-    .tarefaAberta-secao2 {
+    .Interessados-secao {
         
         width: 100%;
         margin-left: 10px;
 
-        .tarefaAberta-btn {
+        .Interessados-btn {
             border: none;
             border-radius: 10px;
 
@@ -62,5 +54,16 @@
             margin-top: 10px;
         }
     }
+}
+
+.Interessados-generalItem {
+    background-color: var(--cor-secundaria);
+    color: var(--texto-alternativo);
+    border-radius: 5px;
+    padding: 0.5em;
+}
+
+.interessados-sessao {
+    margin: 0.5rem 0;
 }
 
