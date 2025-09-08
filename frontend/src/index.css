@@ -3,6 +3,7 @@
 :root {
   --font: "Ubuntu", sans-serif;
 
+  --cor-texto: black;
   --cor-primaria: #17C245;
   --cor-secundaria: #009DFF;
   --cor-fundo: #EFEFEF;

@@ -22,6 +22,10 @@
             display: flex;
             flex-wrap: wrap;
             gap: 5px;
+
+            .Interessados-generalItem {
+                border-radius: 5px;
+            }
             
         }
     }
@@ -59,8 +63,15 @@
 .Interessados-generalItem {
     background-color: var(--cor-secundaria);
     color: var(--texto-alternativo);
-    border-radius: 5px;
     padding: 0.5em;
+
+    border-bottom: 2px solid var(--cor-fundo);
+}
+
+.Interessados-conclusao {
+    border-left: 2px solid var(--cor-fundo);
+    text-align: center;
+    margin: auto 0;
 }
 
 .interessados-sessao {
