@@ -49,18 +49,18 @@ export default function Cabecalho(){
                         <i class="bi bi-house" style={navStyle}></i>
                         <h1 className='ms-2'>Ínicio</h1>
                     </Link>
-                    <div className={urlLink == '/perfil' ? 'nav-item bg-body-secondary' : 'nav-item'}>
+                    <Link to='/perfil' className={urlLink == '/perfil' ? 'nav-item bg-body-secondary' : 'nav-item'}>
                         <i class="bi bi-person-badge" style={navStyle}></i>
                         <h1 className='ms-2'>Perfil</h1>
-                    </div>
+                    </Link>
                     <Link to='/tarefas' className={urlLink == '/tarefas' ? 'nav-item bg-body-secondary' : 'nav-item'}>
                         <i class="bi bi-clipboard" style={navStyle}></i>
                         <h1 className='ms-2'>Tarefas</h1>
                     </Link>
-                    <div className='nav-item'>
+                    <Link to='/config' className={urlLink == '/config' ? 'nav-item bg-body-secondary' : 'nav-item'}>
                         <i class="bi bi-gear" style={navStyle}></i>
                         <h1 className='ms-2'>Configurações</h1>
-                    </div>
+                    </Link>
                     <div className='nav-item'>
                         <i class="bi bi-box-arrow-left" style={navStyle}></i>
                         <h1 className='ms-2'>Sair</h1>

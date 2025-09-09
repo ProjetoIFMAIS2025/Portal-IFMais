@@ -7,6 +7,7 @@ import HomePage from './pages/homePage'
 import PerfilUsuario from "./pages/perfilUser";
 import Tarefa from './components/tarefa'
 import Tarefas from "./pages/tarefas";
+import ConfigPage from "./pages/configPage";
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
         <Route path="/tarefa" element={<Tarefa />} />
         <Route path="/perfil" element={<PerfilUsuario />}/>
         <Route path="/tarefas" element={<Tarefas />} />
+        <Route path="/config" element={<ConfigPage />} />
       </Routes>
     </BrowserRouter>
   )
