@@ -1,9 +1,6 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
-import Collapse from 'react-bootstrap/Collapse';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 
 import "bootstrap-icons/font/bootstrap-icons.css";
@@ -48,18 +45,18 @@ export default function Cabecalho(){
             <Offcanvas.Body>
 
                 <nav>
-                    <Link to="/inicio" className={urlLink == '/inicio' ? 'nav-item bg-body-secondary' : 'nav-item'}>
+                    <Link to='/inicio' className={urlLink == '/inicio' ? 'nav-item bg-body-secondary' : 'nav-item'}>
                         <i class="bi bi-house" style={navStyle}></i>
                         <h1 className='ms-2'>Ínicio</h1>
                     </Link>
-                    <Link to="/perfil" className={urlLink == '/perfil' ? 'nav-item bg-body-secondary' : 'nav-item'}>
+                    <div className={urlLink == '/perfil' ? 'nav-item bg-body-secondary' : 'nav-item'}>
                         <i class="bi bi-person-badge" style={navStyle}></i>
                         <h1 className='ms-2'>Perfil</h1>
-                    </Link>
-                    <div className='nav-item'>
+                    </div>
+                    <Link to='/tarefas' className={urlLink == '/tarefas' ? 'nav-item bg-body-secondary' : 'nav-item'}>
                         <i class="bi bi-clipboard" style={navStyle}></i>
                         <h1 className='ms-2'>Tarefas</h1>
-                    </div>
+                    </Link>
                     <div className='nav-item'>
                         <i class="bi bi-gear" style={navStyle}></i>
                         <h1 className='ms-2'>Configurações</h1>

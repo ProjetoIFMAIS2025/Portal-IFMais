@@ -4,8 +4,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css'
 
 import HomePage from './pages/homePage'
-import Tarefa from './pages/tarefa'
 import PerfilUsuario from "./pages/perfilUser";
+import Tarefa from './components/tarefa'
+import Tarefas from "./pages/tarefas";
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
         <Route path="/inicio" element={<HomePage />} />
         <Route path="/tarefa" element={<Tarefa />} />
         <Route path="/perfil" element={<PerfilUsuario />}/>
+        <Route path="/tarefas" element={<Tarefas />} />
       </Routes>
     </BrowserRouter>
   )
