@@ -34,10 +34,6 @@
 
         width: 30%;
         margin-right: 10px;
-        
-        .Interessados-habilidadesTitulo {
-            margin-top: 10px;
-        }
 
         
     }
@@ -56,6 +52,7 @@
 
             padding: 10px 20px;
             margin-top: 10px;
+            
         }
     }
 }
@@ -65,7 +62,7 @@
     color: var(--texto-alternativo);
     padding: 0.5em;
 
-    border-bottom: 2px solid var(--cor-fundo);
+    border-radius: 5px;
 }
 
 .Interessados-conclusao {
