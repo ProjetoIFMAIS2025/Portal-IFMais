@@ -4,7 +4,30 @@ import PHFundo from '../assets/fundo_ph.webp'
 import PHUser from '../assets/ph.jpg'
 import './tarefa.scss'
 
-export default function Tarefa(){
+function GerarEstrelas(quantEstrelas){
+    const estrelas = [];
+    let tempQuantEstrelas;
+
+    if ((Number.isInteger(quantEstrelas))){
+        tempQuantEstrelas = quantEstrelas;
+    } else {
+        tempQuantEstrelas = quantEstrelas - 0.5
+    }
+
+    for (let i = 0; i < 5; i++){
+        if(i < tempQuantEstrelas){
+            estrelas.push(<i className="bi bi-star-fill cabecalho-icons"></i>);
+        }else if(!Number.isInteger(quantEstrelas) && i == tempQuantEstrelas){
+            estrelas.push(<i className="bi bi-star-half cabecalho-icons"></i>);
+        }else {
+            estrelas.push(<i className="bi bi-star cabecalho-icons"></i>);
+        }     
+    }
+
+    return estrelas;
+}
+
+export default function Tarefa({quantEstrelas=4.5}){  
 
     const navigate = useNavigate();
 
@@ -21,11 +44,7 @@ export default function Tarefa(){
                     <div className='cabecalho-infos'>
                         <img src={PHUser} alt=""  className='foto-empresa' width='100px'/>
                         <div className='cabecalho-nota'>
-                            <i class="bi bi-star-fill cabecalho-icons"></i>
-                            <i class="bi bi-star-fill cabecalho-icons"></i>
-                            <i class="bi bi-star-fill cabecalho-icons"></i>
-                            <i class="bi bi-star-fill cabecalho-icons"></i>
-                            <i class="bi bi-star cabecalho-icons"></i>
+                            {GerarEstrelas(quantEstrelas)}
                         </div>
                     </div>
                 </div>
@@ -62,8 +81,8 @@ export default function Tarefa(){
 
                     <div className='sobrePagamento sobre-secao'>
                         <h2 className='sobrePagemento-titulo titulo'>Pagamento</h2>
-                        <p className='sobrePagamento-quantidade texto'><h4 className='sobrePagamento-quantidade-titulo titulo subTitulo'>Quantidade: </h4> R$ 100,00</p>
-                        <p className='sobrePagamento-metodo texto'><h4 className='sobrePagamento-metodo-titulo titulo subTitulo'>Método de Pagamento: </h4> PIX</p>
+                        <p className='sobrePagamento-quantidade texto'><span className='sobrePagamento-quantidade-titulo titulo subTitulo'>Quantidade: </span> R$ 100,00</p>
+                        <p className='sobrePagamento-metodo texto'><span className='sobrePagamento-metodo-titulo titulo subTitulo'>Método de Pagamento: </span> PIX</p>
                     </div>
 
                     <div className='sobreEntrega sobre-secao'>
@@ -73,7 +92,7 @@ export default function Tarefa(){
                 </div>
 
                 <div className='denuncia'>
-                    <i class="bi bi-exclamation-diamond-fill"></i>
+                    <i className="bi bi-exclamation-diamond-fill"></i>
                     <h4 className='denuncia-texto'>Denunciar Empresa</h4>
                 </div>
             </section>

@@ -17,7 +17,7 @@ function App() {
         <Route path="/inicio" element={<HomePage />} />
         <Route path="/tarefa" element={<Tarefa />} />
         <Route path="/perfil" element={<PerfilUsuario />}/>
-        <Route path="/tarefas" element={<Tarefas />} />
+        <Route path="/tarefas" element={<Tarefas  />} />
         <Route path="/config" element={<ConfigPage />} />
       </Routes>
     </BrowserRouter>

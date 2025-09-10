@@ -1,5 +1,3 @@
-import './tarefaConcluidaItem.scss'
-
 export default function TarefasConcluidaItem({tarefa}) {
     return (
         <div className="perfil-tarefa">
