@@ -46,23 +46,23 @@ export default function Cabecalho(){
 
                 <nav>
                     <Link to='/inicio' className={urlLink == '/inicio' ? 'nav-item bg-body-secondary' : 'nav-item'}>
-                        <i class="bi bi-house" style={navStyle}></i>
+                        <i className="bi bi-house" style={navStyle}></i>
                         <h1 className='ms-2'>Ínicio</h1>
                     </Link>
                     <Link to='/perfil' className={urlLink == '/perfil' ? 'nav-item bg-body-secondary' : 'nav-item'}>
-                        <i class="bi bi-person-badge" style={navStyle}></i>
+                        <i className="bi bi-person-badge" style={navStyle}></i>
                         <h1 className='ms-2'>Perfil</h1>
                     </Link>
                     <Link to='/tarefas' className={urlLink == '/tarefas' ? 'nav-item bg-body-secondary' : 'nav-item'}>
-                        <i class="bi bi-clipboard" style={navStyle}></i>
+                        <i className="bi bi-clipboard" style={navStyle}></i>
                         <h1 className='ms-2'>Tarefas</h1>
                     </Link>
                     <Link to='/config' className={urlLink == '/config' ? 'nav-item bg-body-secondary' : 'nav-item'}>
-                        <i class="bi bi-gear" style={navStyle}></i>
+                        <i className="bi bi-gear" style={navStyle}></i>
                         <h1 className='ms-2'>Configurações</h1>
                     </Link>
                     <div className='nav-item'>
-                        <i class="bi bi-box-arrow-left" style={navStyle}></i>
+                        <i className="bi bi-box-arrow-left" style={navStyle}></i>
                         <h1 className='ms-2'>Sair</h1>
                     </div>
                 </nav>

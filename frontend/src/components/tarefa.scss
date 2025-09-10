@@ -24,9 +24,15 @@
     align-items: center;
     justify-content: flex-start;
 
-    .voltar-icon {
-        font-size: 2rem;
-        margin-left: 15px;
+    .voltar-btn {
+
+        background: none;
+        border: none;
+        
+        .voltar-icon {
+            font-size: 2rem;
+            margin-left: 15px;
+        }
     }
 }
 

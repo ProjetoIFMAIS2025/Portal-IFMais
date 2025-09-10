@@ -1,10 +1,33 @@
+import { Link, useLocation } from 'react-router-dom';
+
 import './tarefaAberta.scss'
 import PHIcon from '../../assets/ph.jpg'
-import { Link } from 'react-router-dom'
+import TarefaInfo from './tarefaInfo'
 
-export default function TarefaAberta({ linkTarefa }){
+export default function TarefaAberta({ linkTarefa, filtro="", filtroTarefa="", statusBool=false}){
+
+    let strFiltro = ""
+
+    switch (filtroTarefa) {
+        case "andamento":
+            strFiltro = "Em andamento"
+            break;
+        case "analise":
+            strFiltro = "Em análise"
+            break;
+        case "pagamento":
+            strFiltro = "Aguardando Pagamento"
+            break;
+        case "finalizado":
+            strFiltro = "Finalizado"
+            break;
+        default:
+            strFiltro = "";
+            break;
+    }
+
     return (
-        <div className="tarefaAberta">
+        <div className={ filtro == filtroTarefa ? "tarefaAberta" : "d-none"}>
             <section className="tarefaAberta-secao1">
                 <img src={PHIcon} alt="" width="100em"/>
                 <h2 className='tarefaAberta-habilidadesTitulo tarefaAberta-titulo'>Habilidades</h2>
@@ -21,8 +44,9 @@ export default function TarefaAberta({ linkTarefa }){
                 <h3 className='tarefaAberta-tituloSobre tarefaAberta-titulo tarefaAberta-texto'>Sobre a Tarefa</h3>
                 <p className='tarefaAberta-sobreTarefa tarefaAberta-texto'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras condimentum sem a risus gravida facilisis. Vivamus id mauris suscipit, elementum lorem eget, pulvinar libero. Mauris lobortis eleifend volutpat. Duis commodo vel odio id pharetra. Sed rhoncus pharetra nisl, eget fermentum elit ornare sed. In maximus sodales vulputate. </p>
                 <div className='tarefaAberta-info'>
-                    <p className='tarefaAberta-prazo tarefaAberta-texto'><span className='tarefaAberta-prazoTitulo tarefaAberta-titulo'>Prazo: </span> xx/05/2025 até xx/06/2025</p>
-                    <p className='tarefaAberta-status tarefaAberta-texto'><span className='tarefaAberta-statusTitulo tarefaAberta-titulo'>Quantidade: </span> R$ 100,00</p>
+                    <TarefaInfo titulo="Prazo:" conteudo="xx/05/2025 até xx/06/2025"/>
+                    <TarefaInfo titulo="Quantidade:" conteudo="R$ 100,00"/>
+                    { statusBool && <TarefaInfo titulo="Status:" conteudo={strFiltro}/> }
                 </div>
                 <Link to={linkTarefa} className='tarefaAberta-btn'>Ver Mais</Link>
             </section>

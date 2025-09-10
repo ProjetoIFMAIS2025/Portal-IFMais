@@ -1,14 +1,17 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import PHFundo from '../assets/fundo_ph.webp'
 import PHUser from '../assets/ph.jpg'
 import './tarefa.scss'
 
 export default function Tarefa(){
+
+    const navigate = useNavigate();
+
     return(
         <main>
             <header className='voltar'>
-                <Link to='/inicio'><i className="bi bi-arrow-left-circle voltar-icon"></i></Link>
+                <button onClick={() => navigate(-1)} className='voltar-btn'><i className="bi bi-arrow-left-circle voltar-icon"></i></button>
             </header>
 
             <section className='main'>

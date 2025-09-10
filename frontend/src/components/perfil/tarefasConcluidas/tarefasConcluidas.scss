@@ -3,6 +3,7 @@
     color: var(--texto-alternativo);
 
     padding: 1rem;
+    margin-bottom: 1rem;
 
     border-radius: 15px;
 
@@ -10,4 +11,8 @@
         font-size: 1.30rem;
         font-weight: 700;
     }
+}
+
+.perfil-tarefa:last-child {
+    margin-bottom: 0;
 }
