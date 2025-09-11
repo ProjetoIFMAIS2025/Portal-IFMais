@@ -5,7 +5,7 @@ import './App.css'
 
 import HomePage from './pages/homePage'
 import PerfilUsuario from "./pages/perfilUser";
-import Tarefa from './components/tarefa'
+import Tarefa from './pages/tarefasFullPage'
 import Tarefas from "./pages/tarefas";
 import ConfigPage from "./pages/configPage";
 
