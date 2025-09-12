@@ -27,7 +27,45 @@ function GerarEstrelas(quantEstrelas){
     return estrelas;
 }
 
-export default function Tarefa({empresaInfo, tarefaInfo}){  
+function GerarFooter(filtro){
+
+    switch(filtro){
+        case 'andamento':
+            return(
+                <footer className='botoes'>
+                    <div className="botao botaoEnviar aceitar">Enviar</div>
+                </footer>
+            )
+        case 'analise':
+            return (
+                <footer className='botoes'>
+                    <div className="botao botaoEnviar conversar">Aguardando Análise</div>
+                </footer>
+            )
+        case 'pagamento':
+            return (
+                <footer className='botoes'>
+                    <div className="botao botaoEnviar conversar">Aguardando Pagamento</div>
+                </footer>
+            )
+        case 'finalizado':
+            return (
+                <footer className='botoes'>
+                    <div className="botao botaoEnviar aceitar">Trabalho Finalizado!</div>
+                </footer>
+            )
+        default:
+        return (
+            <footer className='botoes'>
+                <div className="botao recusar"><i className="bi bi-x-lg botao-icon"></i></div>
+                <div className="botao conversar"><i className="bi bi-chat-left botao-icon"></i></div>
+                <div className="botao aceitar"><i className="bi bi-check2 botao-icon"></i></div>
+            </footer>
+        )
+    }
+}
+
+export default function Tarefa({empresaInfo, tarefaInfo, filtro=null}){  
 
     const navigate = useNavigate();
 
@@ -97,11 +135,7 @@ export default function Tarefa({empresaInfo, tarefaInfo}){
                 </div>
             </section>
 
-            <footer className='botoes'>
-                <div className="botao recusar"><i className="bi bi-x-lg botao-icon"></i></div>
-                <div className="botao conversar"><i className="bi bi-chat-left botao-icon"></i></div>
-                <div className="botao aceitar"><i className="bi bi-check2 botao-icon"></i></div>
-            </footer>
+            {GerarFooter(filtro)}
         </main>
     )
 }

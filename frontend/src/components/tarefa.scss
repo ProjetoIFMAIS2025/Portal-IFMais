@@ -143,9 +143,13 @@
         width: 4rem;
         height: 4rem;
 
-        .botao-icon {
-            color: var(--texto-alternativo);
-        }
+        color: var(--texto-alternativo);
+    }
+
+    .botaoEnviar {
+        border-radius: 15px;
+        width: fit-content;
+        padding: 15px;
     }
 
     .recusar {

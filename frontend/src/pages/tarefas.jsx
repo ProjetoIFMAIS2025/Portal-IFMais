@@ -4,6 +4,7 @@ import Form from 'react-bootstrap/Form';
 import Cabecalho from '../components/cabecalho/cabecalho';
 import TarefaAberta from '../components/Tarefa/tarefaAberta';
 
+import { empresaTeste2, tarefaAbertaTeste } from '../utils/testConsts';
 import './tarefas.scss';
 
 export default function Tarefas(){
@@ -32,7 +33,7 @@ export default function Tarefas(){
             </section>
 
             <section className='sessao-tarefas tarefas-bloco'>
-                <TarefaAberta linkTarefa='/tarefa' filtro={filtro} filtroTarefa={'andamento'} statusBool={true}/>
+                <TarefaAberta linkTarefa='/tarefa?id=3' filtro={filtro} filtroTarefa={'analise'} empresaInfo={empresaTeste2} tarefaInfo={tarefaAbertaTeste} statusBool={true}/>
             </section>
 
         </main>

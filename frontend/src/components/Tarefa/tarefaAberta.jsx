@@ -6,6 +6,8 @@ import TarefaInfo from './tarefaInfo'
 
 export default function TarefaAberta({ linkTarefa, filtro="", filtroTarefa="", empresaInfo, tarefaInfo, statusBool=false}){
 
+    
+
     let strFiltro = ""
 
     switch (filtroTarefa) {
