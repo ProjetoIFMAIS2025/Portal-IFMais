@@ -5,6 +5,7 @@ import './App.css'
 
 import HomePage from './pages/homePage'
 import Tarefa from './pages/tarefa'
+import PerfilUsuario from "./pages/perfilUser";
 
 function App() {
 
@@ -13,6 +14,7 @@ function App() {
       <Routes>
         <Route path="/inicio" element={<HomePage />} />
         <Route path="/tarefa" element={<Tarefa />} />
+        <Route path="/perfil" element={<PerfilUsuario />}/>
       </Routes>
     </BrowserRouter>
   )

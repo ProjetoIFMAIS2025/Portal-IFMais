@@ -1,0 +1,70 @@
+.perfil {
+
+    margin: 1.25rem;
+
+    .perfil-sessao {
+        margin: 1rem 0;
+    }
+
+    .perfil-cabecalho {
+
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+        .perfil-cabecalho-foto {
+            border-radius: 15px;
+        }
+
+        .perfil-cabecalho-info {
+
+            .perfil-cabecalho-info-item {
+                margin: 1rem 0;
+            }
+
+            .perfil-nome {
+                color: var(--cor-primaria);
+                font-size: 1.5rem;
+                font-weight: 700;
+            }
+
+            .perfil-area {  
+                font-size: 1.25rem;
+            }
+
+            .perfil-notas {
+                font-size: 1.25rem;
+            }
+
+            .perfil-nota {
+                margin: 0 0.25rem;
+            }
+        }
+    }
+
+    .perfil-conteudo-btns {
+
+            display: flex;
+            justify-content: space-between;
+
+            .btn-perfil {
+                background-color: white;
+                border: 2px solid var(--cor-primaria);
+                border-radius: 10px;
+                
+                width: 6.5rem;
+                height: 2.5rem;
+
+            
+            }
+
+            .btn-selecionado {
+                background-color: var(--cor-primaria);
+            }
+        }
+
+
+
+    
+
+}

@@ -20,3 +20,8 @@ body {
 html {
   font-family: var(--font)!important;
 }
+
+a {
+  text-decoration: none!important;
+  color: inherit!important;
+}
