@@ -24,9 +24,15 @@
     align-items: center;
     justify-content: flex-start;
 
-    .voltar-icon {
-        font-size: 2rem;
-        margin-left: 15px;
+    .voltar-btn {
+
+        background: none;
+        border: none;
+        
+        .voltar-icon {
+            font-size: 2rem;
+            margin-left: 15px;
+        }
     }
 }
 
@@ -137,9 +143,13 @@
         width: 4rem;
         height: 4rem;
 
-        .botao-icon {
-            color: var(--texto-alternativo);
-        }
+        color: var(--texto-alternativo);
+    }
+
+    .botaoEnviar {
+        border-radius: 15px;
+        width: fit-content;
+        padding: 15px;
     }
 
     .recusar {

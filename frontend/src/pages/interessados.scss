@@ -1,0 +1,27 @@
+.sessao-tarefas {
+    margin: 1rem;
+}
+
+.tarefas-cabecalho {
+    
+    .tarefas-titulo {
+        font-weight: 700;
+        text-align: center;
+
+        margin-bottom: 1rem;
+    }
+
+    .tarefas-filtro {    
+        .tarefas-filtro-titulo {
+            font-weight: 700;
+        }
+    }
+}
+
+.tarefas-bloco {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    border-radius: 10px;
+}
