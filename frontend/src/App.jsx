@@ -9,6 +9,7 @@ import PerfilUsuario from "./pages/perfilUser";
 import Interessado from './pages/interessadoFullPage'
 import Interessados from "./pages/interessados";
 import Tarefas from "./pages/tarefas";
+import ConfigPage from "./pages/configPage";
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
         <Route path="/perfil" element={<PerfilUsuario />}/>
         <Route path="/tarefas" element={<Interessados />} />
         <Route path="/tarefa" element={<Tarefas />}/>
+        <Route path="/config" element={<ConfigPage />} />
       </Routes>
     </BrowserRouter>
   )

@@ -60,10 +60,10 @@ export default function Cabecalho(){
                         <i class="bi bi-clipboard" style={navStyle}></i>
                         <h1 className='ms-2'>Minhas Tarefas</h1>
                     </Link>
-                    <div className='nav-item'>
+                    <Link to="/config" className={urlLink == '/config' ? 'nav-item bg-body-secondary' : 'nav-item'}>
                         <i class="bi bi-gear" style={navStyle}></i>
                         <h1 className='ms-2'>Configurações</h1>
-                    </div>
+                    </Link>
                     <div className='nav-item'>
                         <i class="bi bi-box-arrow-left" style={navStyle}></i>
                         <h1 className='ms-2'>Sair</h1>
