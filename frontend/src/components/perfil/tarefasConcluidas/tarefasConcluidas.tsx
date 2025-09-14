@@ -4,7 +4,7 @@ export default function TarefasConcluidas(){
     return (
         <section className="perfil-sessao perfil-conteudo">
             <div className="perfil-tarefa">
-                <h2 className="perfil-tarefa-nomeEmpresa my-2">The Feitos</h2>
+                <h2 className="perfil-tarefa-nomeEmpresa my-2">Desenvolvimento de Logo</h2>
 
                 <div className="perfil-tarefa-sobreTarefa my-2">
                     <h4 className="tarefa-sobre-titulo fw-bold">Sobre a Tarefa</h4>

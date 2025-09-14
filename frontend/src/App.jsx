@@ -7,7 +7,8 @@ import HomePage from './pages/homePage'
 //import Tarefa from './pages/tarefa'
 import PerfilUsuario from "./pages/perfilUser";
 import Interessado from './pages/interessadoFullPage'
-import Tarefas from "./pages/interessados";
+import Interessados from "./pages/interessados";
+import Tarefas from "./pages/tarefas";
 
 function App() {
 
@@ -15,9 +16,10 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/inicio" element={<HomePage />} />
-        <Route path="/tarefa" element={<Interessado />} />
+        <Route path="/interessado" element={<Interessado />} />
         <Route path="/perfil" element={<PerfilUsuario />}/>
-        <Route path="/tarefas" element={<Tarefas />} />
+        <Route path="/tarefas" element={<Interessados />} />
+        <Route path="/tarefa" element={<Tarefas />}/>
       </Routes>
     </BrowserRouter>
   )

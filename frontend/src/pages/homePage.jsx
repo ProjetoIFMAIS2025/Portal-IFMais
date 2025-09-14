@@ -16,7 +16,7 @@ export default function HomePage(){
             <h1 className="home_titulo">Oportunidades</h1>
 
             <section className="home_tarefas">
-                <Interessado dadosAluno={AlunoTeste} dadosTarefa={tarefaTeste}/>
+                <Interessado dadosAluno={AlunoTeste} dadosTarefa={tarefaAbertaTeste} linkAluno="/interessado?id=1"/>
             </section>
         </main>
     )

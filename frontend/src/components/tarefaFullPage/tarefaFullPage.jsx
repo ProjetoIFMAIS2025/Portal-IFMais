@@ -1,8 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom';
 
-import PHFundo from '../assets/fundo_ph.webp'
-import PHUser from '../assets/ph.jpg'
-import './interessado.scss'
+import './tarefaFullPage.scss'
 
 function GerarEstrelas(quantEstrelas){
     const estrelas = [];
@@ -30,16 +28,23 @@ function GerarEstrelas(quantEstrelas){
 function GerarFooter(filtro){
 
     switch(filtro){
+        case 'candidato':
+            return(
+                <footer className='botoes'>
+                    <div className="botao botaoEnviar conversar">Aguardando Candidato</div>
+                </footer>
+            )
+            break;
         case 'andamento':
             return(
                 <footer className='botoes'>
-                    <div className="botao botaoEnviar aceitar">Enviar</div>
+                    <div className="botao botaoEnviar conversar">Aguardando Trabalho</div>
                 </footer>
             )
         case 'analise':
             return (
                 <footer className='botoes'>
-                    <div className="botao botaoEnviar aceitar">Analisar Conteúdo</div>
+                    <div className="botao botaoEnviar aceitar">Revisar Trabalho</div>
                 </footer>
             )
         case 'pagamento':
@@ -65,7 +70,7 @@ function GerarFooter(filtro){
     }
 }
 
-export default function Tarefa({userInfo, tarefaInfo, filtro=null}){  
+export default function Tarefa({empresaInfo, tarefaInfo, userInfo, arquivo, filtro=null}){  
 
     const navigate = useNavigate();
 
@@ -80,31 +85,31 @@ export default function Tarefa({userInfo, tarefaInfo, filtro=null}){
                     <div className='cabecalho-fundo-div'>        
                     </div>
                     <div className='cabecalho-infos'>
-                        <img src={userInfo.fotoPerfil} alt=""  className='foto-empresa' width='100px'/>
+                        <img src={empresaInfo.fotoUser} alt=""  className='foto-empresa' width='100px'/>
                         <div className='cabecalho-nota'>
-                            {GerarEstrelas(userInfo.quantEstrelas)}
+                            {GerarEstrelas(empresaInfo.quantEstrelas)}
                         </div>
                     </div>
                 </div>
 
                 <div className="tarefaInfo">
                     <div className='tarefaInfo-cabecalho sobre-secao'>
-                        <h2 className='tarefaInfo-titulo titulo'>{userInfo.nome}</h2>
-                        <h4 className='tarefaInfo-empresa texto'>{userInfo.area}</h4>
+                        <h2 className='tarefaInfo-titulo titulo'>{tarefaInfo.titulo}</h2>
+                        <h4 className='tarefaInfo-empresa texto'>{empresaInfo.nome}</h4>
                     </div>
 
                     <div className="sobreEmpresa sobre-secao">
-                        <h2 className='sobreEmpresa-titulo titulo'>Tarefa de Interesse</h2>
-                        <p className='sobreEmpresa-texto texto'>{tarefaInfo.titulo}</p>
+                        <h2 className='sobreEmpresa-titulo titulo'>Sobre a empresa</h2>
+                        <p className='sobreEmpresa-texto texto'>{empresaInfo.sobre}</p>
                     </div>
 
-                    <div className="sobreEmpresa sobre-secao">
-                        <h2 className='sobreEmpresa-titulo titulo'>Sobre Mim</h2>
-                        <p className='sobreEmpresa-texto texto'>{userInfo.sobre}</p>
+                    <div className='sobreTarefa sobre-secao'>
+                        <h2 className='sobreTarefa-titulo titulo'>Sobre a Tarefa</h2>
+                        <p className='sobreTarefa-texto texto'>{tarefaInfo.sobre} </p>
                     </div>
 
                     <div className='sobreHabilidades sobre-secao'>
-                        <h2 className='sobreHabilidades-titulo titulo'>Habilidades que possuo</h2>
+                        <h2 className='sobreHabilidades-titulo titulo'>Habilidades Necessárias</h2>
                         <div className='sobreHabilidades-habilidades texto'>
                             {tarefaInfo.habilidades.map((item, idx) => (
                                 <h4 className='sobreHabilidades-habilidade'>{item}</h4>
@@ -112,20 +117,36 @@ export default function Tarefa({userInfo, tarefaInfo, filtro=null}){
                         </div>
                     </div>
 
-                    <div className='sobreEntrega sobre-secao'>
-                        <h2 className='sobreEntrega-titulo titulo'>Método de Entrega Preferido</h2>
-                        <p className='sobreEntrega-texto texto'>Envio {tarefaInfo.entrega}</p>
+                    <div className='sobrePrazo sobre-secao'>
+                        <h2 className='sobrePrazo-titulo titulo'>Prazo</h2>
+                        <p className='sobrePrazo-texto texto'>{tarefaInfo.prazoInicio} até {tarefaInfo.prazoFim}</p>
+                    </div>
+
+                    <div className='sobrePagamento sobre-secao'>
+                        <h2 className='sobrePagemento-titulo titulo'>Pagamento</h2>
+                        <p className='sobrePagamento-quantidade texto'><span className='sobrePagamento-quantidade-titulo titulo subTitulo'>Quantidade: </span> R$ {tarefaInfo.remunerado ? tarefaInfo.quantidade : "Não remunerado"}</p>
+                        {tarefaInfo.remunerado && <p className='sobrePagamento-metodo texto'><span className='sobrePagamento-metodo-titulo titulo subTitulo'>Método de Pagamento: </span> {tarefaInfo.pagamento}</p>}
                     </div>
 
                     <div className='sobreEntrega sobre-secao'>
-                        <h2 className='sobreEntrega-titulo titulo'>Método de Pagamento Preferido</h2>
-                        <p className='sobreEntrega-texto texto'>{tarefaInfo.pagamento}</p>
+                        <h2 className='sobreEntrega-titulo titulo'>Método de Entrega</h2>
+                        <p className='sobreEntrega-texto texto'>Envio {tarefaInfo.entrega}</p>
+                    </div>
+
+                    <div className='sobreEncarregado sobre-secao'>
+                        <h2 className='sobreEntrega-titulo titulo'>Encarregado</h2>
+                        <p className='sobreEntrega-texto texto text-decoration-underline'>{userInfo ? userInfo.nome : "Aguardando Candidato"}</p>        
+                    </div>
+
+                    <div className='sobreEncarregado sobre-secao'>
+                        <h2 className='sobreEntrega-titulo titulo'>Arquivos</h2>
+                        <p className='sobreEntrega-texto texto text-decoration-underline'>{arquivo} {arquivo ? <i class="bi bi-download"></i> : "Aguardando Envio"}</p>        
                     </div>
                 </div>
 
                 <div className='denuncia'>
                     <i className="bi bi-exclamation-diamond-fill"></i>
-                    <h4 className='denuncia-texto'>Denunciar Usuário</h4>
+                    <h4 className='denuncia-texto'>Denunciar Empresa</h4>
                 </div>
             </section>
 

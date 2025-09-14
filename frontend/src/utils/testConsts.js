@@ -1,15 +1,45 @@
+export const empresaTeste = {
+    fotoUser: 'src/storage/logoEmpresaRandom.webp',
+    quantEstrelas: 4,
+    nome: "WebCom LTDA",
+    sobre: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras condimentum sem a risus gravida facilisis. Vivamus id mauris suscipit, elementum lorem eget, pulvinar libero. Mauris lobortis eleifend volutpat. Duis commodo vel odio id pharetra. Sed rhoncus pharetra nisl, eget fermentum elit ornare sed. In maximus sodales vulputate. ",
+
+}
+
 export const HabilidadesAlunoTeste = [
         "Design Gráfico",
         "Programação Web",
         "Canva"
     ]
 
+export const HabilidadesAlunoTeste2 = [
+        "Gestão",
+        "Excel",
+        "Logística"
+    ]
+
 export const AlunoTeste = {
+    fotoPerfil: 'src/storage/userIcon.jpg',
     nome: "Jonathan da Silva",
     area: "Programação Web",
     instituicao: "IFPR, Campus Telêmaco Borba",
     habilidades: HabilidadesAlunoTeste,
     sobre: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras condimentum sem a risus gravida facilisis. Vivamus id mauris suscipit, elementum lorem eget, pulvinar libero. Mauris lobortis eleifend volutpat. Duis commodo vel odio id pharetra. Sed rhoncus pharetra nisl, eget fermentum elit ornare sed. In maximus sodales vulputate. ",
+    entrega: "Através da Plataforma",
+    pagamento: "Pix",
+    quantEstrelas: 5
+}
+
+export const AlunoTeste2 = {
+    fotoPerfil: 'src/storage/userIcon.jpg',
+    nome: "Luciano Gimeno",
+    area: "Gestão",
+    instituicao: "IFPR, Campus Telêmaco Borba",
+    habilidades: HabilidadesAlunoTeste2,
+    sobre: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras condimentum sem a risus gravida facilisis. Vivamus id mauris suscipit, elementum lorem eget, pulvinar libero. Mauris lobortis eleifend volutpat. Duis commodo vel odio id pharetra. Sed rhoncus pharetra nisl, eget fermentum elit ornare sed. In maximus sodales vulputate. ",
+    entrega: "Não possui",
+    pagamento: "Dinheiro Físico",
+    quantEstrelas: 4
 }
 
 export const tarefaTesteHabilidades = ["Design Gráfico", "Desenvolvimento Web", "Programação Web"]
@@ -17,7 +47,7 @@ export const tarefaTesteHabilidades2 = ["Excel", "Logística", "Gestão"]
 export const tarefaAbertaTestHab = ["Excel", "Organização", "Gestão"]
 
 export const tarefaTeste = {
-    titulo: "Reestruturar do site",
+    titulo: "Reestruturar site",
     sobre: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras condimentum sem a risus gravida facilisis. Vivamus id mauris suscipit, elementum lorem eget, pulvinar libero. Mauris lobortis eleifend volutpat. Duis commodo vel odio id pharetra. Sed rhoncus pharetra nisl, eget fermentum elit ornare sed. In maximus sodales vulputate. ",
     habilidades: tarefaTesteHabilidades,
     prazoInicio: "xx/05/2025",
@@ -39,7 +69,7 @@ export const tarefaTeste2 = {
 }
 
 export const tarefaAbertaTeste = {
-    titulo: "Organizar e cadastrar estoque.",
+    titulo: "Organizar e cadastrar estoque",
     sobre: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras condimentum sem a risus gravida facilisis. Vivamus id mauris suscipit, elementum lorem eget, pulvinar libero. Mauris lobortis eleifend volutpat. Duis commodo vel odio id pharetra. Sed rhoncus pharetra nisl, eget fermentum elit ornare sed. In maximus sodales vulputate. ",
     habilidades: tarefaAbertaTestHab,
     prazoInicio: "xx/10/2025",
