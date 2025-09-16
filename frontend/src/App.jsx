@@ -18,6 +18,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path="/" element={<HomePage />} />
         <Route path="/inicio" element={<HomePage />} />
         <Route path="/interessado" element={<Interessado />} />
         <Route path="/perfil" element={<PerfilUsuario />}/>
