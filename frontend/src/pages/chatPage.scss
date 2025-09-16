@@ -1,0 +1,57 @@
+.chat-cabecalho {
+    margin: 1rem 0;
+    display: flex;
+
+    height: 8vh;
+
+    .center {
+        margin-left: 1rem;
+        font-weight: 700;
+
+        .chat-titulo {
+            color: var(--cor-primaria);
+        }
+    }
+    
+}
+
+.chat {
+    min-height: 80vh;
+    background-color: var(--cor-fundo);
+
+    margin: 1rem;
+    padding: 1rem;
+
+    border-radius: 15px;
+}
+
+.contrato {
+    background-color: var(--cor-secundaria);
+    color: white;
+    border-radius: 15px;
+
+    padding: 0.5rem;
+
+    width: fit-content;
+
+    .contrato-cabecalho {
+        font-size: 1.25rem;
+        margin: .5rem 0;
+
+        .icon {
+            display: inline;
+        }
+
+        .acessar {
+            display: inline;
+            margin-left: .5rem;
+        }
+    }
+
+    .arquivo {
+        font-size: .8rem;
+        text-align: center!important;
+        text-decoration: underline!important;
+        color: var(--cor-fundo2)!important;
+    }
+}

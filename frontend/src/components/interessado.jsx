@@ -27,7 +27,11 @@ function GerarEstrelas(quantEstrelas){
     return estrelas;
 }
 
-function GerarFooter(filtro){
+function GerarFooter(filtro, id){
+
+    const navigate = useNavigate();
+
+
 
     switch(filtro){
         case 'andamento':
@@ -57,15 +61,15 @@ function GerarFooter(filtro){
         default:
         return (
             <footer className='botoes'>
-                <div className="botao recusar"><i className="bi bi-x-lg botao-icon"></i></div>
+                <button onClick={() => navigate(-1)} className="botao recusar"><i className="bi bi-x-lg botao-icon"></i></button>
                 <div className="botao conversar"><i className="bi bi-chat-left botao-icon"></i></div>
-                <div className="botao aceitar"><i className="bi bi-check2 botao-icon"></i></div>
+                <Link to={"/chat?idInt=" + id} className="botao aceitar"><i className="bi bi-check2 botao-icon"></i></Link>
             </footer>
         )
     }
 }
 
-export default function Tarefa({userInfo, tarefaInfo, filtro=null}){  
+export default function Tarefa({userInfo, tarefaInfo, filtro=null, id}){  
 
     const navigate = useNavigate();
 
@@ -114,12 +118,12 @@ export default function Tarefa({userInfo, tarefaInfo, filtro=null}){
 
                     <div className='sobreEntrega sobre-secao'>
                         <h2 className='sobreEntrega-titulo titulo'>Método de Entrega Preferido</h2>
-                        <p className='sobreEntrega-texto texto'>Envio {tarefaInfo.entrega}</p>
+                        <p className='sobreEntrega-texto texto'>{userInfo.entrega == "Não possui" ? userInfo.entrega : "Envio " + userInfo.entrega}</p>
                     </div>
 
                     <div className='sobreEntrega sobre-secao'>
                         <h2 className='sobreEntrega-titulo titulo'>Método de Pagamento Preferido</h2>
-                        <p className='sobreEntrega-texto texto'>{tarefaInfo.pagamento}</p>
+                        <p className='sobreEntrega-texto texto'>{userInfo.pagamento}</p>
                     </div>
                 </div>
 
@@ -129,7 +133,7 @@ export default function Tarefa({userInfo, tarefaInfo, filtro=null}){
                 </div>
             </section>
 
-            {GerarFooter(filtro)}
+            {GerarFooter(filtro, id)}
         </main>
     )
 }

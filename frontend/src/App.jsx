@@ -10,6 +10,7 @@ import Interessado from './pages/interessadoFullPage'
 import Interessados from "./pages/interessados";
 import Tarefas from "./pages/tarefas";
 import ConfigPage from "./pages/configPage";
+import ChatPage from './pages/chatPage';
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
         <Route path="/tarefas" element={<Interessados />} />
         <Route path="/tarefa" element={<Tarefas />}/>
         <Route path="/config" element={<ConfigPage />} />
+        <Route path="/chat" element={<ChatPage />}/>
       </Routes>
     </BrowserRouter>
   )

@@ -139,11 +139,12 @@
         text-align: center;
 
         border-radius: 50%;
+        border: none;
 
         width: 4rem;
         height: 4rem;
 
-        color: var(--texto-alternativo);
+        color: var(--texto-alternativo)!important;
     }
 
     .botaoEnviar {

@@ -12,8 +12,8 @@ export default function TarefasFullPage(){
 
     return (
         <div>
-            {interessadoID == 1 && <Interessado userInfo={AlunoTeste} tarefaInfo={tarefaTeste}/>}
-            {interessadoID == 2 && <Interessado userInfo={AlunoTeste2} tarefaInfo={tarefaTeste2}/>}
+            {interessadoID == 1 && <Interessado userInfo={AlunoTeste} tarefaInfo={tarefaTeste} id={interessadoID}/>}
+            {interessadoID == 2 && <Interessado userInfo={AlunoTeste2} tarefaInfo={tarefaTeste2} id={interessadoID}/>}
             {/*interessadoID == 3 && <Interessado empresaInfo={empresaTeste2} tarefaInfo={tarefaAbertaTeste} filtro="analise"/>*/}
         </div>
     )

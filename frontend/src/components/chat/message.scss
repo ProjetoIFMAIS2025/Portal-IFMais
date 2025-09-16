@@ -1,0 +1,32 @@
+.msg {
+
+    display: flex;
+
+    .fotoUser {
+        border: 2px solid black;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        object-fit: cover;
+    }
+
+    .msgTexto {
+
+        margin-left: .5rem;
+        padding: 1rem;
+        background-color: var(--cor-fundo2);
+
+        border-radius: 15px;
+
+        width: 100%;
+        
+        .mensagem-nome {
+            color: var(--cor-primaria);
+            font-weight: 700;
+        }
+
+        .mensagem-texto {
+            margin-top: .5rem;
+        }
+    }
+}
