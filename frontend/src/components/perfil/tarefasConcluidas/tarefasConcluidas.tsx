@@ -1,4 +1,4 @@
-import './TarefasConcluidas.scss'
+import './tarefasConcluidas.scss'
 
 export default function TarefasConcluidas(){
     return (
