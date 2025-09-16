@@ -1,5 +1,5 @@
 export const empresaTeste = {
-    fotoUser: 'src/storage/logoEmpresaRandom.webp',
+    fotoUser: 'https://www.pikpng.com/pngl/b/30-304461_generic-placeholder-image-generic-business-logo-clipart.png',
     quantEstrelas: 4,
     nome: "WebCom LTDA",
     sobre: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras condimentum sem a risus gravida facilisis. Vivamus id mauris suscipit, elementum lorem eget, pulvinar libero. Mauris lobortis eleifend volutpat. Duis commodo vel odio id pharetra. Sed rhoncus pharetra nisl, eget fermentum elit ornare sed. In maximus sodales vulputate. ",
@@ -19,8 +19,8 @@ export const HabilidadesAlunoTeste2 = [
     ]
 
 export const AlunoTeste = {
-    fotoPerfil: 'src/storage/userIcon.jpg',
-    nome: "Jonathan da Silva",
+    fotoPerfil: 'https://cdn.vectorstock.com/i/1000v/82/33/gray-female-headshot-placeholder-vector-24138233.jpg',
+    nome: "Fernanda Lagos",
     area: "Programação Web",
     instituicao: "IFPR, Campus Telêmaco Borba",
     habilidades: HabilidadesAlunoTeste,
@@ -31,7 +31,7 @@ export const AlunoTeste = {
 }
 
 export const AlunoTeste2 = {
-    fotoPerfil: 'src/storage/userIcon.jpg',
+    fotoPerfil: 'https://thumbs.dreamstime.com/b/generic-person-gray-photo-placeholder-man-silhouette-white-background-144511705.jpg',
     nome: "Luciano Gimeno",
     area: "Gestão",
     instituicao: "IFPR, Campus Telêmaco Borba",
