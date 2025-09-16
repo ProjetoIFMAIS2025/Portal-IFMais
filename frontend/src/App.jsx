@@ -11,6 +11,7 @@ import Interessados from "./pages/interessados";
 import Tarefas from "./pages/tarefas";
 import ConfigPage from "./pages/configPage";
 import ChatPage from './pages/chatPage';
+import CriarTarefa from "./pages/criarTarefa";
 
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
         <Route path="/tarefa" element={<Tarefas />}/>
         <Route path="/config" element={<ConfigPage />} />
         <Route path="/chat" element={<ChatPage />}/>
+        <Route path="/criar-tarefa" element={<CriarTarefa />}/>
       </Routes>
     </BrowserRouter>
   )

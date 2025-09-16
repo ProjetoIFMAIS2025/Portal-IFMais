@@ -1,0 +1,61 @@
+.criarTarefa-cabecalho {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+
+    padding: 0.5rem 1rem;
+
+    .criarTarefa-titulo {
+        color: var(--cor-primaria);
+        font-weight: 700;
+    }
+
+    .criarTarefa-voltar-btn {
+        position: absolute;
+        left: 1rem; // sempre fixo na esquerda
+    }
+
+    .criarTarefa-titulo {
+        color: var(--cor-primaria);
+        font-weight: 700;
+    }
+}
+
+.criarTarefa-form {
+    margin: 1rem;
+
+    .criarTarefa-prazo {
+
+        .criarTarefa-prazo-dia {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .criarTarefa-prazo-dia-input {
+                width: 9rem;
+            }
+        }
+
+        .criarTarefa-prazo-hora {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            .criarTarefa-prazo-hora-input {
+                width: 70%;
+            }
+        }
+    }
+
+}
+
+.tarefa-form-titulo {
+    font-weight: 700;
+}
+
+.destaque {
+    color: var(--cor-primaria);
+    font-size: 1.2rem;
+}

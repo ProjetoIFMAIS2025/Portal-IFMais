@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 import { useState } from 'react';
 
 import Form from 'react-bootstrap/Form';
@@ -39,6 +41,7 @@ export default function Tarefas(){
                 <InteressadoAberto linkAluno='/tarefa?id=3' filtro={filtro} filtroTarefa={'candidato'} dadosAluno={null} dadosTarefa={tarefaAbertaTeste} statusBool={true}/>
             </section>
 
+            <Link to="/criar-tarefa" className='btn btn-primary fs-2 fw-bold btn-tarefa'>Criar Tarefa</Link>
         </main>
     )
 }
