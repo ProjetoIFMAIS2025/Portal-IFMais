@@ -110,7 +110,7 @@ export default function Tarefa({userInfo, tarefaInfo, filtro=null, id}){
                     <div className='sobreHabilidades sobre-secao'>
                         <h2 className='sobreHabilidades-titulo titulo'>Habilidades que possuo</h2>
                         <div className='sobreHabilidades-habilidades texto'>
-                            {tarefaInfo.habilidades.map((item, idx) => (
+                            {tarefaInfo.habilidades.map((item) => (
                                 <h4 className='sobreHabilidades-habilidade'>{item}</h4>
                             ))}
                         </div>
